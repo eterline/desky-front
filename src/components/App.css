@@ -1,0 +1,128 @@
+html {
+    margin: 0.3em;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Fonts presets */
+
+@font-face {
+    font-family: 'JB-Bold';
+    font-style: normal;
+    src:  url("../fonts/JetBrainsMono-Bold.woff2") format('woff2')
+}
+
+@font-face {
+    font-family: 'JB-Light';
+    font-style: normal;
+    src:  url("../fonts/JetBrainsMono-Light.woff2") format('woff2')
+}
+
+
+body {
+    font-family: 'JB-Bold', sans-serif;
+}
+
+.LightFont {
+    font-family: 'JB-Light', sans-serif;
+}
+
+/* Color pallete ==================== */
+
+* {
+
+    font-size: 18px;
+
+    /* Windows color */
+    --body-bg: rgb(0, 0, 0);
+    --window-bg: white;
+
+    /* Text vars */
+    --text: aliceblue;
+    --text-smooth: rgb(130, 141, 148);
+    --text-error: rgb(156, 15, 15);
+    --text-accent: rgb(236, 165, 10);
+    --text-link: rgb(7, 102, 180);
+
+    /* Background colors */
+    --window-bg: rgb(226, 226, 226);
+    --window-bg-smooth: rgb(179, 179, 179);
+
+    /* Decoration */
+    --window-shadow: rgba(255, 255, 255, 0.6);
+    --button-shadow-white: white;
+    --button-shadow-dark: black;
+
+    /* Bars and metrics color */
+    --bar-color1-min: purple;
+    --bar-color1-max: rgb(220, 0, 220);
+
+    --bar-color2-min: green;
+    --bar-color2-max: rgb(0, 220, 0);
+
+    --bar-color3-min: rgb(0, 125, 125);
+    --bar-color3-max: rgb(0, 220, 220);
+}
+
+/* Main ==================== */
+
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+#app-root {
+    display: flex;
+    gap: 1em;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--body-bg);
+
+    padding: 0.8rem;
+}
+
+#AppsContainer {
+    width: 50%;
+    height: 100%;
+}
+
+#DataContainer {
+    display: flex;
+    flex-direction: column;
+
+    gap: 1em;
+    
+    width: 50%;
+    height: 100%;
+}
+
+@media (orientation: portrait) {
+    * {
+        font-size: 14px;
+    }
+
+    #DataContainer {
+        display: none;
+    }
+
+    #AppsContainer {
+        width: 100%;
+    }
+}
+
+@media  (max-width: 1024px) {
+    * {
+        font-size: 14px;
+    }
+}

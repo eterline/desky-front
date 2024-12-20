@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 496.8 496.8" xml:space="preserve">
+<path style="fill:#D1DBD6;" d="M496,467.2c0,16-12.8,28.8-28.8,28.8H28.8C12.8,496,0,483.2,0,467.2V28.8C0,12.8,12.8,0,28.8,0H468
+	c16,0,28.8,12.8,28.8,28.8v438.4H496z"/>
+<path style="fill:#C5D1CA;" d="M0,28.8C0,12.8,12.8,0,28.8,0H468c16,0,28.8,12.8,28.8,28.8V468c0,16-12.8,28.8-28.8,28.8"/>
+<g>
+	<path style="fill:#FFFFFF;" d="M44,51.2c-5.6,8-5.6,19.2,1.6,26.4s18.4,8,26.4,1.6L44,51.2z"/>
+	<path style="fill:#FFFFFF;" d="M48,47.2l28,28c5.6-8,5.6-19.2-1.6-26.4C67.2,41.6,56,40.8,48,47.2z"/>
+	<path style="fill:#FFFFFF;" d="M452,51.2c5.6,8,5.6,19.2-1.6,26.4s-18.4,8-26.4,1.6L452,51.2z"/>
+	<path style="fill:#FFFFFF;" d="M448,47.2l-28,28c-5.6-8-5.6-19.2,1.6-26.4C428.8,41.6,440,40.8,448,47.2z"/>
+	<path style="fill:#FFFFFF;" d="M452,444.8c5.6-8,5.6-19.2-1.6-26.4c-7.2-7.2-18.4-8-26.4-1.6L452,444.8z"/>
+	<path style="fill:#FFFFFF;" d="M448,448.8l-28-28c-5.6,8-5.6,19.2,1.6,26.4C428.8,454.4,440,455.2,448,448.8z"/>
+	<path style="fill:#FFFFFF;" d="M44,444.8c-5.6-8-5.6-19.2,1.6-26.4c7.2-7.2,18.4-8,26.4-1.6L44,444.8z"/>
+	<path style="fill:#FFFFFF;" d="M48,448.8l28-28c5.6,8,5.6,19.2-1.6,26.4C67.2,454.4,56,455.2,48,448.8z"/>
+</g>
+<circle style="fill:#EBF7F4;" cx="248" cy="248" r="182.4"/>
+<circle style="fill:#FFFFFF;" cx="247.2" cy="240.8" r="175.2"/>
+<path style="fill:#EBF7F4;" d="M119.2,119.2c71.2-71.2,186.4-71.2,257.6,0s71.2,186.4,0,257.6"/>
+<circle style="fill:#C5D1CA;" cx="248" cy="62.4" r="36"/>
+<circle style="fill:#D1DBD6;" cx="248" cy="433.6" r="36"/>
+<circle style="fill:#6D706E;" cx="162.4" cy="248" r="26.4"/>
+<path style="fill:#8A8E8C;" d="M136.8,248c0-14.4,12-26.4,26.4-26.4s26.4,12,26.4,26.4"/>
+<circle style="fill:#6D706E;" cx="333.6" cy="248" r="26.4"/>
+<path style="fill:#8A8E8C;" d="M307.2,248c0-14.4,12-26.4,26.4-26.4s26.4,12,26.4,26.4"/>
+<circle style="fill:#EAC113;" cx="248" cy="248" r="12"/>
+<path style="fill:#E8A615;" d="M239.2,239.2c4.8-4.8,12.8-4.8,16.8,0c4.8,4.8,4.8,12,0,16.8"/>
+</svg>

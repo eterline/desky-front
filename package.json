@@ -1,0 +1,56 @@
+{
+  "name": "desky-front",
+  "version": "1.0.0",
+  "description": "Frontend App UI for WEB Panel - Desky",
+  "main": "main.js",
+  "private": true,
+  "scripts": {
+    "build": "webpack --config webpack.config.ts --env mode=development",
+    "build:prod": "webpack --config webpack.config.ts --env mode=production build=web",
+    "test": "test",
+    "start": "webpack serve --open --env serverPort=9400"
+  },
+  "repository": {
+    "type": "git",
+    "url": "desky-front"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.1",
+    "@types/webpack-env": "^1.18.5",
+    "autoprefixer": "^10.4.20",
+    "css-loader": "^7.1.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.3",
+    "postcss": "^8.4.49",
+    "react": "^19.0.0",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^3.4.16",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.2.0"
+  },
+  "author": "Eterline",
+  "license": "MIT",
+  "dependencies": {
+    "crypto-browserify": "^3.12.1",
+    "eva-icons": "^1.1.3",
+    "html-webpack-plugin": "^5.6.3",
+    "inline-source-map": "^0.6.3",
+    "mini-css-extract-plugin": "^2.9.2",
+    "postcss-loader": "^8.1.1",
+    "postcss-preset-env": "^10.1.2",
+    "react-dom": "^19.0.0",
+    "svelte-icons-pack": "^3.1.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^5.1.4"
+  }
+}

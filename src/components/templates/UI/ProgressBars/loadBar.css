@@ -1,0 +1,47 @@
+.LoadBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    border: 2px solid;
+    border-radius: 0.5rem;
+    padding: 0.2em;
+
+    gap: 0.5rem;
+
+
+    background-color: var(--body-bg);
+    box-shadow: 2px 2px 2px var(--body-bg);
+}
+
+.LoadBar img {
+    width: auto;
+    height: 2rem;
+}
+
+.LoadBar-bar {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 2rem;
+    height: 100%;
+
+    transform: scaleY(-1);
+}
+
+
+.LoadBar-icon {
+    display: flex;
+    align-items: center;
+    filter: invert(1);
+}
+
+.LoadBar-data {
+    display: flex;
+    align-items: center;
+
+    color: var(--text);
+}

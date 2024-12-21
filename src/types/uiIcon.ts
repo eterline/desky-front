@@ -1,0 +1,3 @@
+interface UIIconProps {
+    name: string;
+}

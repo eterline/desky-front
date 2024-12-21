@@ -2,19 +2,8 @@ import { useEffect, useState } from "react";
 import { ErrorMessage } from "./UI/Dialog/errorMessage";
 import { ParameterBar } from "./UI/ProgressBars/parameterBar";
 import { LoadBar } from "./UI/ProgressBars/loadBar";
-
 import FetchingService from "../../libs/fetchingService";
 import "./hostInfoField.css"
-
-
-interface SystemInfo {
-    system:     string;
-    hostname:   string;
-    uptime:     number;
-
-    kernel:     string
-    arch:       string
-}
 
 class SystemInfoService extends FetchingService {
     constructor(api: string, debug: boolean = false) {

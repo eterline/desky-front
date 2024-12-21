@@ -13,10 +13,11 @@ interface configEnv {
 }
 
 
-// Config opyions
+// Config options
 module.exports = (env: configEnv) => {
 
     const isDevelopMode = (env.mode === "development");
+    const pathStatic: string = "static";
 
     return {
         
@@ -26,9 +27,9 @@ module.exports = (env: configEnv) => {
         // Entry JS File
         entry: "./src/main.tsx",
         output: {
-            filename: "bundle.[contenthash].js",
+            filename: path.join(pathStatic, "bundle.[contenthash].js"),
             path: path.resolve(__dirname, env.build ?? "build"),
-            clean: true
+            clean: true,
         },
 
         // Configurating some plugins
@@ -38,7 +39,7 @@ module.exports = (env: configEnv) => {
                 cache: false
             }),
             new MiniCssExtractPlugin({
-                filename: "styles.[contenthash].css",
+                filename: "static/styles.[contenthash].css",
             })
         ],
 
@@ -51,19 +52,29 @@ module.exports = (env: configEnv) => {
                     use: 'ts-loader',
                     exclude: /node_modules/,
                 },
-                // {
-                //     test: /\.css$/i,
-                //     use: [MiniCssExtractPlugin.loader, "css-loader"],
-                // },
+
             // CSS loader
                 {
                     test: /\.css$/i,
                     use: [MiniCssExtractPlugin.loader, "css-loader"],
                 },
+
+
+                {
+                    test: /\.(woff(2)?)$/i,
+                    type: 'asset/resource',
+                    generator: {
+                        filename: 'static/font.[name].[ext]',
+                    },
+                },
+
             // Image content loader
                 {
-                    test: /\.(woff(2)?|png|jpg|jpeg|gif)$/i,
+                    test: /\.(png|jpg|jpeg|gif)$/i,
                     type: 'asset/resource',
+                    generator: {
+                        filename: '[name].[ext]',
+                    },
                 },
 
                 {
@@ -73,7 +84,7 @@ module.exports = (env: configEnv) => {
                         loader: 'file-loader',
                         options: {
                           name: '[name].[ext]',
-                          outputPath: 'assets/',
+                          outputPath: 'assets',
                         },
                       },
                     ],

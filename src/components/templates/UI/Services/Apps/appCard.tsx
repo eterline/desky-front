@@ -1,23 +1,16 @@
 import "./appCard.css";
 import { AppIcon } from "./appIcon";
 
-export interface CardProps {
-    name:           string;
-    link:           string;
-    icon:           string;
-    description:    string;
-}
-
-export const AppCard = (props: CardProps) => {
+export const AppCard = (props: AppCardProps) => {
     
     return (
-        <div className="AppCard">
+        <div className="AppCard UPonDisplay">
 
             <div className="AppCard-icon">
                 <AppIcon name={props.icon}/>
             </div>
 
-            <div className="AppCard-name">
+            <div className="AppCard-name UPonDisplay">
                 {props.name}
             </div>
 

@@ -45,3 +45,13 @@
 
     color: var(--text);
 }
+
+@media (orientation: portrait) {
+    .LoadBar-bar {
+        display: none;
+    }
+
+    .LoadBar-data {
+        margin-top: auto;
+    }
+}

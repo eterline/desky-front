@@ -10,7 +10,7 @@ export const AppIcon = (props: AppIconProps) => {
     const IconSrc = AppsIcons[props.name] ?? AppsIcons["default-app"];
 
     return IconSrc ? (
-        <img className="AppIcon" src={IconSrc} alt={props.name} style={{width: '100%'}} />
+        <img className="AppIcon UPonDisplay" src={IconSrc} alt={props.name} style={{width: '100%'}} />
     ) : (
         <ErrorMessage text={"Icon not found"} type="notice" />
     );

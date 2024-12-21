@@ -1,8 +1,3 @@
-interface ErrorMsg {
-    text: string
-    type: "alert" | "notice" | "warning"
-}
-
 export const ErrorMessage = (props: ErrorMsg) => {
 
     return (

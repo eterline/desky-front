@@ -92,37 +92,103 @@ body {
     padding: 0.8rem;
 }
 
-#AppsContainer {
+#ServicesContainer {
     width: 50%;
     height: 100%;
+
+    transition-property: opacity, display;
+    transition-duration: 0.25s;
+}
+
+.ServiceBlock {
+    height: 90%;
 }
 
 #DataContainer {
+    width: 50%;
+    height: 100%;
+
+    transition: all 0.25s;
+    transition: all 0.25s allow-discrete;
+}
+
+#DataContainer-wrapper {
     display: flex;
     flex-direction: column;
 
-    gap: 1em;
     
-    width: 50%;
+    width: 100%;
     height: 100%;
+
+    gap: 1em;
 }
 
 @media (orientation: portrait) {
     * {
-        font-size: 14px;
+        font-size: 18px;
     }
+
+
 
     #DataContainer {
-        display: none;
+        width: 100%;
     }
 
-    #AppsContainer {
+    #ServicesContainer {
         width: 100%;
+    }
+
+    #swapBtn {
+        display: block;
+    }
+
+    .display-On-Phone {
+        animation-duration: 0.5s;
+        animation-name: swapHeight;
+
+        animation-iteration-count: 1;
+        animation-direction: normal;
+    }
+
+    .display-Off-Phone {
+        display: none;
+        opacity: 0;
+
+        animation-duration: 0.5s;
+        animation-name: swapHeight;
+        
+        animation-iteration-count: 1;
+        animation-direction: reverse;
     }
 }
 
-@media  (max-width: 1024px) {
-    * {
-        font-size: 14px;
-    }
+@keyframes swapHeight {
+    from    { height: 0%;   scale: .5; }
+    to      { height: 100%; scale: 1; }
+}
+
+.UPonDisplay {
+    animation-duration: 0.5s;
+    animation-name: swapScale;
+    
+    animation-iteration-count: 1;
+    animation-direction: normal;
+}
+
+.DOWNonDisplay {
+    animation-duration: 0.5s;
+    animation-name: swapScale;
+    
+    animation-iteration-count: 1;
+    animation-direction: reverse;
+}
+
+@keyframes swapScale {
+    from    { scale: .1; }
+    to      { scale: 1; }
+}
+
+@keyframes swapWidth {
+    from    { width: 0%; }
+    to      { width: 100%; }
 }

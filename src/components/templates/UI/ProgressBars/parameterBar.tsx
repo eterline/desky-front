@@ -2,19 +2,8 @@ import { IconUI } from "../Pictures/uiIcon";
 import { ProgressBar } from "./progressBar";
 import "./parameterBar.css"
 
-type UnitPrefix = "GB" | "MB" | "%" | "B";
 
-interface BarProps {
-    icon:           string;
-    descriprion?:   string;
-
-    upperValue:     number;
-    actualValue?:   number;
-
-    prefix?:         UnitPrefix;
-}
-
-export const ParameterBar = (props: BarProps) => {
+export const ParameterBar = (props: ParameterBarProps) => {
 
     const loaded: number = ((props.actualValue ?? 0) / props.upperValue) * 100
 
@@ -25,7 +14,7 @@ export const ParameterBar = (props: BarProps) => {
             </div>
             <div className="ParameterBar-bar">
                 <span>{props.descriprion}</span>
-                < ProgressBar bgcolor="red" completed={loaded}/>
+                < ProgressBar bgcolor={props.color} completed={loaded}/>
             </div>
             <div className="ParameterBar-data">
                 {props.actualValue}/{props.upperValue}({props.prefix})

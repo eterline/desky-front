@@ -12,11 +12,13 @@
 
     box-shadow: 5px 5px 2px var(--body-bg);
 
+    margin-top: 0.5em;
 
+    transition: 0.2s ease-in-out transform;
 }
 
-.AppCard {
-    margin-top: 0.5em;
+.AppCard:hover {
+    transform: scale(1.05);
 }
 
 .AppCard-icon {

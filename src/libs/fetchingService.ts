@@ -25,7 +25,11 @@ export default class FetchingService {
         }
     };
 
-    debugInfo() {
+    debugInfo(): void {
         this.isDebug && console.debug(`Fetched data =>: ${this.fetchedData}`);
+    }
+
+    getAllData(): Object {
+        return this.fetchedData
     }
 }

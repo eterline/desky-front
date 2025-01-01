@@ -1,5 +1,5 @@
 export const API: ApiPattern = {
-    baseUrl:  "http://localhost:3000/api",
+    baseUrl:  "/api",
     version: (version: number) => `v${version}`,
 
     host: {

@@ -1,3 +1,5 @@
+import "./errorMessage.css";
+
 export const ErrorMessage = (props: ErrorMsg) => {
 
     return (

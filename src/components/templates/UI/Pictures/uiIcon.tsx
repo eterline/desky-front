@@ -1,4 +1,4 @@
-import IconsUI from "../../../assets/icons";
+import IconsUI from "../../../../assets/icons";
 import { ErrorMessage } from "../../UI/Dialog/errorMessage";
 
 

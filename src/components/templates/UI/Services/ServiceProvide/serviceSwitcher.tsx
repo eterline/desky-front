@@ -1,4 +1,5 @@
 import "./serviceSwitcher.css"
+import { AppIcon }  from "../Apps/appIcon";
 
 type ServiceName = string;
 
@@ -16,15 +17,13 @@ export const ServiceSwitcher = (props: ServiceSwitcherProps) => {
 
     return (
         <div className="ServiceSwitcher">
-            <nav>
                 {
                     props.appList.map((app) => (
-                        <div onClick={() => { switchTo(app) }}>
-                            {app}
+                        <div className="ServiceSwitcher-case" onClick={() => { switchTo(app) }}>
+                            <AppIcon name={app}/>
                         </div>
                     ))
                 }
-            </nav>
         </div>
     );
 };

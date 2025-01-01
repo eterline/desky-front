@@ -9,4 +9,10 @@ interface ApiPattern {
       load: string;
       cpu: string;
     };
+
+    apps: {
+      table: string;
+      addApp: (topic: string) => string;
+      deleteApp: (topic: string, number: number) => string;
+    };
 }

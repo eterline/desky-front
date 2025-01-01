@@ -32,7 +32,7 @@ const AppsTopic = (props: AppsTopicProps) => {
 
 
 export const AppsField = () => {
-    const { loading, error, data } = useFetchAPI<any[]>("apps.json");
+    const { loading, error, data } = useFetchAPI<Record<string, AppCardProps[]>>(resolveApi(API.apps.table));
 
     if (error) { return <ErrorMessage text={error} type="notice" /> }
     if (loading) { return <div>Loading...</div> }
@@ -40,7 +40,11 @@ export const AppsField = () => {
     return (
         <div className="AppsField">
             <div className="AppsField-apps ServiceCase">
-                { data.map((d) => (<AppsTopic topic={d.topic} apps={d.apps}/>)) }
+                { 
+                    Object.entries(data).map(([topicName, appList]) => (
+                        <AppsTopic topic={topicName} apps={appList}/>
+                    )) 
+                }
             </div>
         </div>
     );

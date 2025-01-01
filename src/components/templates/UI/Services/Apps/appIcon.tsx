@@ -1,4 +1,4 @@
-import AppsIcons from "../../../../assets/apps";
+import AppsIcons from "../../../../../assets/apps";
 import { ErrorMessage } from "../../Dialog/errorMessage";
 
 interface AppIconProps {

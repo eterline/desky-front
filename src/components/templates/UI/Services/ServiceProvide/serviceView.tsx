@@ -11,7 +11,6 @@ export const ServiceView = (props: ServiceViewProps) => {
 
     const serviceMap = new Map<string, React.ReactNode>([
         ["apps",    <AppsField />],
-        ["docker",  <AppsField />],
         ["proxmox", <AppsField />],
     ]);
 

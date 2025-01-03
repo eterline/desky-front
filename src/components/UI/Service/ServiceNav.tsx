@@ -1,7 +1,8 @@
-import ServiceMap from '../../../libs/serviceMap';
+import { ServiceMap } from '../../../libs/serviceMap';
 import ServiceCard from './ServiceCard';
 import useServiceContext from '../../../hooks/useServiceContext';
-import { useState, FC } from 'react';
+import ExitButton from './ExitButton';
+import { FC } from 'react';
 
 import './ServiceNav.css';
 
@@ -27,6 +28,8 @@ const ServiceNav: FC<ServiceNavProps> = ({ show }) => {
                     onClick={ () => { setSelectedService(key) } }
                 />
             ))}
+
+            <ExitButton />
         </div>
     );
 };

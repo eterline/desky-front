@@ -6,7 +6,7 @@ interface AppIconProps {
     size?: string
 }
 
-const AppIcon: FC<AppIconProps> = ({name, size}) => {
+export const AppIcon: FC<AppIconProps> = ({name, size}) => {
 
     const IconSrc = AppsIcons[name] ?? AppsIcons["default-app"];
     const targetSize = size ?? '100%'
@@ -19,4 +19,20 @@ const AppIcon: FC<AppIconProps> = ({name, size}) => {
     </div>)
 };
 
-export default AppIcon;
+interface AppIconURLProps {
+    url: string;
+    size?: string
+}
+
+export const AppIconURL: FC<AppIconURLProps> = ({url, size}) => {
+
+    const targetSize = size ?? '100%'
+
+    return (<div style={{width: targetSize, height: targetSize}}>
+        <img
+            src={url} 
+            alt="icon from URL"
+            style={{width: '100%', height: '100%'}} 
+        />
+    </div>)
+};

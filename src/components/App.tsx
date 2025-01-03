@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import { Pictures } from '../assets';
 
 import './App.css';
+import './AppPhone.css';
 
 export const App = () => {
 
@@ -24,6 +25,7 @@ export const App = () => {
     return (
     <div style={backgroundStyle}>
         <BrowserRouter>
+        <ToastContainer />
             <Routes>
                 <Route path='' element={ <Main/> }/>
                 <Route path='welcome' element={ <Welcome/> }/>

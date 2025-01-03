@@ -11,4 +11,8 @@ const ServiceMap: ServiceMapPattern = new Map([
     ['docker', AppService],
 ]);
 
-export default ServiceMap;
+const SelectService = (service: string): FC => {
+    return ServiceMap.get(service)
+}
+
+export { ServiceMap, SelectService };

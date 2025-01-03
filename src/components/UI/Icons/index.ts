@@ -1,5 +1,5 @@
-import AppIcon from "./AppIcon";
+import { AppIcon, AppIconURL } from "./AppIcon";
 import UiIcon from "./UiIcon";
 
 // exports for top components
-export { AppIcon, UiIcon };
+export { AppIcon, AppIconURL, UiIcon };

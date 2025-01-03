@@ -1,31 +1,34 @@
 import { Navigate } from "react-router-dom";
 import { useAuthorized, useElementSwitch } from '../../hooks';
-import { API, resolveApi } from "../../libs/apiResolve";
 import { ServiceNav, ServiceView, ServiceProvider } from '../UI/Service';
 import { SwitchButton } from '../UI/Functional'
-import { FC } from 'react';
+import { FC, useEffect } from 'react';
+import showToast from '../../libs/showToats';
 
 const Main: FC = () => {
-    const isAuth = useAuthorized(resolveApi(API.check), true);
-    const { status, switchStatusFunc } = useElementSwitch(false);
 
-    if (!isAuth) {
-        return (
-            <Navigate to={'/welcome'} />
-        );
-    }
+    useEffect(()=>{ showToast("welcome") }, [])
+
+    const authState = useAuthorized(true)
+    if (!authState) { return (<Navigate to={'/welcome'} />) }
+
+    const { status, switchStatusFunc } = useElementSwitch(false);
+    const btnSize = status ? '4rem' : '2rem' ;
 
     return (
         <div className="MainPage">
-            <ServiceProvider>
+            <ServiceProvider defaults="apps">
                 <div style={{display: 'flex', width: '100%', height: '100vh'}}>
+
                     <ServiceNav show={status}/>
                     <ServiceView/>
 
-                    <SwitchButton 
-                        show={true} switcherFunc={switchStatusFunc} 
-                        bgColor="none" showIcon={true} content="arrow-left-circle"
-                    />
+                    <div className="ServiceNav-button">
+                        <SwitchButton 
+                            showIcon={true} width={btnSize} height={btnSize} content="apps"
+                            switcherFunc={switchStatusFunc} bgColor="var(--window-shadow)"
+                        />
+                    </div>
 
                 </div>
             </ServiceProvider>

@@ -1,0 +1,38 @@
+.ErrorMessage {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.2em;
+    font-size: 1.5em;
+
+    padding: 0.5em;
+    border-radius: 0.5em;
+
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.err-alert {
+    color: red;
+}
+.err-notice{
+    color: yellow;
+}
+.err-warning {
+    color: rgb(255, 102, 0);
+}
+
+.ErrorMessage > svg {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 30%;
+    height: 30%;
+
+    filter: drop-shadow( 0px 0px 4px rgba(255, 0, 0, 0.7));
+}
+
+.ErrorMessage > div {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.2em;
+    border-radius: 0.3em;
+}

@@ -33,9 +33,16 @@ export default class loginService {
                 })
                 .then(data => {
                     setItemLocalStorage('token', data.DeskyJWT)
+                    setTimeout(window.location.reload.bind(window.location), 1000)
                 })
                 .catch(e => {
-                    showToast(e.message)
+                    showToast(e.message || e)
                 });
     }
+
+    logOut() {
+        setItemLocalStorage('token', "");
+        showToast('Logging out. Bye.')
+        setTimeout(window.location.reload.bind(window.location), 1000);
+    } 
 }

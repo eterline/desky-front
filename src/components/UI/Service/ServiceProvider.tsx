@@ -1,9 +1,9 @@
-import React, { useState, ReactNode } from 'react';
+import { useState, ReactNode, FC } from 'react';
 import { ServiceContext } from '../../../hooks';
 
-const ServiceProvider: React.FC<{ children: ReactNode }>  = ({ children }) => {
+const ServiceProvider: FC <{ children: ReactNode, defaults: string }>  = ({ children, defaults }) => {
 
-    const [selectedService, setSelectedService] = useState<string>('');
+    const [selectedService, setSelectedService] = useState<string>(defaults);
 
     return (
         <ServiceContext.Provider value={{selectedService, setSelectedService}}>

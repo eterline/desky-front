@@ -1,4 +1,7 @@
 .ServiceView {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
 
     margin: 2.5rem;
@@ -7,6 +10,22 @@
     background-color: var(--window-bg-trans-30);
 
     border-radius: .5rem;
+}
+
+.ServiceView-top {
+    border-radius: .5rem .5rem 0 0;
+    background-color: var(--body-bg-trans-80);
+
+    text-align: center;
+
+    font-size: 2rem;
+    padding: .2rem;
+}
+
+.ServiceView-main {
+    height: 100%;
+    width: 100%;
+    overflow-x: auto;
 }
 
 @media (orientation: portrait) {

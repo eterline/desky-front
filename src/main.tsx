@@ -13,7 +13,7 @@ if (!rootDiv) {
 const rootContainer = createRoot(rootDiv);
 
 rootContainer.render(
-    <React.StrictMode>
+    // <React.StrictMode>
         <App />
-    </React.StrictMode>
+    // </React.StrictMode>
 );

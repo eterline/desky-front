@@ -7,7 +7,6 @@ interface SwitchButtonProps {
 
     showIcon?: boolean
 
-    show: boolean
     switcherFunc: () => void
 
     width?: string
@@ -17,7 +16,7 @@ interface SwitchButtonProps {
     textColor?: string
 }
 
-const SwitchButton: FC<SwitchButtonProps> = ({show, switcherFunc, content, width, height, bgColor, textColor, showIcon}) => {
+const SwitchButton: FC<SwitchButtonProps> = ({switcherFunc, content, width, height, bgColor, textColor, showIcon}) => {
 
     const buttonStyle = {
         width: width ?? "100px",
@@ -30,7 +29,7 @@ const SwitchButton: FC<SwitchButtonProps> = ({show, switcherFunc, content, width
         border: 'none'
     };
 
-    return (<div className="SwitchButton _phoneVisible _absolutePosit-phone _topIndex-phone" style={buttonStyle} onClick={switcherFunc}>
+    return (<div className="SwitchButton" style={buttonStyle} onClick={switcherFunc}>
 
         { showIcon ? ( <img src={UiIcons[content] ?? UiIcons["alert-circle"]} alt='button' />) : (content ?? 'button') }
 

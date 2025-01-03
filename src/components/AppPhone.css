@@ -5,16 +5,16 @@
     }
 
     ._phoneVisible {
-        display: inline-block;
+        display: block;
     }
 
-    ._absolutePosit-phone {
+    ._absolute-phone {
         position: absolute;
     }
 
 }
 
-._phoneVisible {
+._invisible {
     display: none;
 }
 

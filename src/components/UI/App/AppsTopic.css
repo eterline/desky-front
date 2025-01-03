@@ -1,0 +1,22 @@
+.AppsTopic {
+    text-align: center;
+}
+
+.AppsTopic h1 {
+    font-size: 1.3em;
+    color: var(--text);
+    background-color: var(--body-bg);
+
+    padding: 0.3em;
+
+    border-radius: 0.5rem;
+}
+
+.AppsTopicRow {
+    display: flex;
+    justify-content: center;
+
+    gap: 1em;
+
+    flex-wrap: wrap;
+}

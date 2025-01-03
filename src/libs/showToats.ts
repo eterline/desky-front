@@ -1,12 +1,10 @@
-const showToast = (message: string) => {
-    const toast = document.createElement('div');
-    toast.classList.add('custom-toast');
-    toast.innerText = message;
-    document.body.appendChild(toast);
+import { toast } from 'react-toastify';
 
-    setTimeout(() => {
-        toast.remove();
-    }, 5000);
+const showToast = (message: string) => {
+    toast(message, {
+        ariaLabel: 'Email received',
+    })
+
 };
 
 export default showToast;

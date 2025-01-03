@@ -40,4 +40,16 @@
         left: -20vh;
     }
 
+    .ServiceNav-button {
+        position: fixed;
+        right: .2rem;
+        top: .2rem;;
+    }
+
+}
+
+@media (orientation: landscape) {
+    .ServiceNav-button {
+        display: none;
+    }
 }

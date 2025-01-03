@@ -1,0 +1,30 @@
+.ServiceCard {
+    height: fit-content;
+
+    background-color: var(--body-bg-trans-80);
+    text-align: center;
+    border-radius: .5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 10px;
+
+    padding: .2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+.ServiceCard-name {
+    text-align: center;
+    width: 100%;
+}
+
+@media (orientation: portrait) {
+
+    .ServiceCard-name { 
+        display: none;
+    }    
+    
+}

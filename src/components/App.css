@@ -1,11 +1,20 @@
-html {
-    margin: 0.3em;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body, html {
     margin: 0;
     padding: 0;
-    height: 100vh;
+}
+
+:root {
+    box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
 }
 
 /* Fonts presets */
@@ -16,33 +25,34 @@ body, html {
     src:  url("../fonts/JetBrainsMono-Bold.woff2") format('woff2')
 }
 
-@font-face {
-    font-family: 'JB-Light';
-    font-style: normal;
-    src:  url("../fonts/JetBrainsMono-Light.woff2") format('woff2')
-}
-
 
 body {
     font-family: 'JB-Bold', sans-serif;
-}
 
-.LightFont {
-    font-family: 'JB-Light', sans-serif;
+    color: var(--text);
+
+    font-size: 18px;
 }
 
 /* Color pallete ==================== */
 
 * {
 
-    font-size: 18px;
-
     /* Windows color */
     --body-bg: rgb(0, 0, 0);
     --window-bg: white;
 
+    --body-bg-trans-80: rgba(0, 0, 0, 0.8);
+    --body-bg-trans-50: rgba(0, 0, 0, 0.5);
+    --body-bg-trans-30: rgba(0, 0, 0, 0.3);
+
+    --window-bg-trans-80: rgba(255, 255, 255, 0.8);
+    --window-bg-trans-50: rgba(255, 255, 255, 0.5);
+    --window-bg-trans-30: rgba(255, 255, 255, 0.3);
+    
     /* Text vars */
     --text: aliceblue;
+    --text-dark: rgb(0, 0, 0);
     --text-smooth: rgb(130, 141, 148);
     --text-error: rgb(156, 15, 15);
     --text-accent: rgb(236, 165, 10);
@@ -69,126 +79,3 @@ body {
 }
 
 /* Main ==================== */
-
-:root {
-    box-sizing: border-box;
-}
-
-*,
-::before,
-::after {
-    box-sizing: inherit;
-}
-
-#app-root {
-    display: flex;
-    gap: 1em;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: var(--body-bg);
-
-    padding: 0.8rem;
-}
-
-#ServicesContainer {
-    width: 50%;
-    height: 100%;
-
-    transition-property: opacity, display;
-    transition-duration: 0.25s;
-}
-
-.ServiceBlock {
-    height: 90%;
-}
-
-#DataContainer {
-    width: 50%;
-    height: 100%;
-
-    transition: all 0.25s;
-    transition: all 0.25s allow-discrete;
-}
-
-#DataContainer-wrapper {
-    display: flex;
-    flex-direction: column;
-
-    
-    width: 100%;
-    height: 100%;
-
-    gap: 1em;
-}
-
-@media (orientation: portrait) {
-    * {
-        font-size: 18px;
-    }
-
-
-
-    #DataContainer {
-        width: 100%;
-    }
-
-    #ServicesContainer {
-        width: 100%;
-    }
-
-    #swapBtn {
-        display: block;
-    }
-
-    .display-On-Phone {
-        animation-duration: 0.5s;
-        animation-name: swapHeight;
-
-        animation-iteration-count: 1;
-        animation-direction: normal;
-    }
-
-    .display-Off-Phone {
-        display: none;
-        opacity: 0;
-
-        animation-duration: 0.5s;
-        animation-name: swapHeight;
-        
-        animation-iteration-count: 1;
-        animation-direction: reverse;
-    }
-}
-
-@keyframes swapHeight {
-    from    { height: 0%;   scale: .5; }
-    to      { height: 100%; scale: 1; }
-}
-
-.UPonDisplay {
-    animation-duration: 0.5s;
-    animation-name: swapScale;
-    
-    animation-iteration-count: 1;
-    animation-direction: normal;
-}
-
-.DOWNonDisplay {
-    animation-duration: 0.5s;
-    animation-name: swapScale;
-    
-    animation-iteration-count: 1;
-    animation-direction: reverse;
-}
-
-@keyframes swapScale {
-    from    { scale: .1; }
-    to      { scale: 1; }
-}
-
-@keyframes swapWidth {
-    from    { width: 0%; }
-    to      { width: 100%; }
-}

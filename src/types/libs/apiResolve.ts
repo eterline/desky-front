@@ -4,6 +4,8 @@ interface ApiPattern {
     baseUrl: string;
     version: (version: number) => string;
 
+    check: string
+
     host: {
       system: string;
       load: string;

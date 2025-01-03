@@ -1,33 +1,35 @@
-import { HostInfoField } from "./templates/hostInfoField";
-import { NetInfoField } from "./templates/netInfoField";
-import { useState } from "react";
-import { SwapBtn } from "./templates/UI/Functional/swapBtn";
-import { ServiceSwitcher } from "./templates/UI/Services/ServiceProvide/serviceSwitcher";
-import { ServiceView } from "./templates/UI/Services/ServiceProvide/serviceView";
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import Main from './MainPage/Main';
+import Welcome from './WelcomePage/Welcome';
+import { ToastContainer } from 'react-toastify';
+
+import { Pictures } from '../assets';
 
 import './App.css';
 
-const serviceList: string[] = ["apps", "docker", "proxmox"];
-
 export const App = () => {
-    const [swapInfo, setSwapInfo] = useState<boolean>(true);
-    const [service, setService] = useState<string>("apps");
+
+    const bgPicture = Pictures["login-bg"]
+
+    console.log(bgPicture)
+
+    const backgroundStyle = {
+        height: '100vh',
+        backgroundImage: `url(${bgPicture})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+      };
 
     return (
-        <>
-            <div id="ServicesContainer" className={(swapInfo ? "display-On-Phone"  : "display-Off-Phone")}>
-                <ServiceView serviceName={service}/>
-                <ServiceSwitcher appList={serviceList} switched={service} switchFunc={setService}/>
-            </div>
-            
-            <div id="DataContainer" className={(swapInfo ? "display-Off-Phone"  : "display-On-Phone")}>
-                <div id="DataContainer-wrapper">
-                    <HostInfoField />
-                    <NetInfoField />
-                </div>
-            </div>
-
-            <SwapBtn switcher={setSwapInfo} state={swapInfo}/>
-        </>
+    <div style={backgroundStyle}>
+        <BrowserRouter>
+            <Routes>
+                <Route path='' element={ <Main/> }/>
+                <Route path='welcome' element={ <Welcome/> }/>
+            </Routes>
+            <ToastContainer/>
+        </BrowserRouter>
+    </div>
     );
 };

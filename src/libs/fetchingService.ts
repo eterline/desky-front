@@ -1,4 +1,5 @@
 import { getAuthToken } from "./localStorageService";
+import { getItemLocalStorage } from '../libs/localStorage';
 
 const httpErrorString = "HTTP error! Status: ";
 
@@ -8,6 +9,7 @@ export default class FetchingService {
     protected fetchedData:    any;
     protected isDebug:        boolean;
     protected apiToken:       string;
+    protected status:         number;
 
     constructor (api: string, debug: boolean = false) {
         this.apiUrl = api;
@@ -17,17 +19,19 @@ export default class FetchingService {
     }
 
     async fetchInfo(): Promise<any> {
+
         try {
             this.isDebug && console.log("fetched URL: " + this.apiUrl)
             const response = await fetch(this.apiUrl, {
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
+                    "DeskyJWT": getItemLocalStorage("token"),
                 }
             })
 
             if (!response.ok) {throw new Error( httpErrorString + response.status );}
-
+            this.status = await response.status;
             this.fetchedData = await response.json();
         } catch (error) {
             throw error;
@@ -40,6 +44,7 @@ export default class FetchingService {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    // "DeskyJWT": `${localStorage.getItem('token')}`,
                     ...headers
                 },
                 body: JSON.stringify(body)
@@ -55,6 +60,10 @@ export default class FetchingService {
 
     debugInfo(): void {
         this.isDebug && console.debug(`Fetched data =>: ${this.fetchedData}`);
+    }
+
+    getStatusCode(): number {
+        return this.status ?? null
     }
 
     getAllData<T>(): T {

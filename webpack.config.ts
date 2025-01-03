@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
+import { use } from "react";
 
 // Declare config types
 type envMode = "production" | "development";
@@ -46,6 +47,16 @@ module.exports = (env: configEnv) => {
         // Loaders rules
         module: {
             rules: [
+
+                {
+                    test: /\.(jpg|svg)$/i,
+                    loader: 'file-loader',
+                    options: {
+                      name: 'assets/[name].[ext]',
+                      publicPath: '/assets',
+                    },
+                },
+                
             // TypeScript loader
                 {
                     test: /\.tsx?$/,
@@ -56,7 +67,16 @@ module.exports = (env: configEnv) => {
             // CSS loader
                 {
                     test: /\.css$/i,
-                    use: [MiniCssExtractPlugin.loader, "css-loader"],
+                    use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                        url: true, // Обрабатывает пути в CSS
+                        importLoaders: 1,
+                        },
+                    },
+                    ],
                 },
 
 
@@ -69,26 +89,14 @@ module.exports = (env: configEnv) => {
                 },
 
             // Image content loader
-                {
-                    test: /\.(png|jpg|jpeg|gif)$/i,
-                    type: 'asset/resource',
-                    generator: {
-                        filename: '[name].[ext]',
-                    },
-                },
-
-                {
-                    test: /\.svg$/,
-                    use: [
-                      {
-                        loader: 'file-loader',
-                        options: {
-                          name: '[name].[ext]',
-                          outputPath: 'assets',
-                        },
-                      },
-                    ],
-                }
+                // {
+                //     test: /\.(png|jpg|jpeg|gif)$/i,
+                //     type: 'asset/resource',
+                //     generator: {
+                //         filename: '[name].[ext]',
+                //     },
+                //     use
+                // },
             ],
           },
 
@@ -104,8 +112,23 @@ module.exports = (env: configEnv) => {
             static: {
               directory: path.join(__dirname, "build"),
             },
-            compress: true,
-            port: env.serverPort ?? 9000,
+
+            historyApiFallback: true,
+            compress: false,
+
+            port: env.serverPort ?? 3000,
+
+            proxy: [
+                {
+                  context: ['/api/v1'],
+                  target: 'http://localhost:3000/',
+                },
+
+                {
+                    context: ['/login'],
+                    target: 'http://localhost:3000/',
+                },
+            ],
         },
     };
 }

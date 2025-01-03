@@ -8,7 +8,7 @@ interface FetchApi<DataType> {
     data:       DataType | null;
 }
 
-export const useFetchAPI = <DataType>(url: string): FetchApi<DataType> => {
+const useFetchAPI = <DataType>(url: string): FetchApi<DataType> => {
 
     const [status, setStatus] = useState<FetchApi<DataType>>({loading: true, error: null, data: null});
     
@@ -28,3 +28,5 @@ export const useFetchAPI = <DataType>(url: string): FetchApi<DataType> => {
 
     return status;
 };
+
+export default useFetchAPI;

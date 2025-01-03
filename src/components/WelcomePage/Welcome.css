@@ -1,0 +1,70 @@
+.WelcomePage {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    animation-name: loginAnimate;
+    animation-iteration-count: 1;
+    animation-duration: .5s;
+}
+
+.WelcomePage-form{
+    padding: .8rem;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: auto;
+    text-align: center;
+
+    background-color: var(--body-bg-trans-80);
+
+    border-radius: 1rem;
+}
+
+.WelcomePage-form h2 {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin-bottom: .2rem;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    color: var(--body-bg);
+
+    background-color: var(--window-bg-trans-50);
+    padding: .2rem;
+    width: fit-content;
+
+    border-radius: .2rem;
+
+    font-size: 2rem;
+}
+
+.WelcomePage-form input {
+    margin-top: .6rem;
+
+    width: 100%;
+    border-radius: .2rem;
+
+    font-size: 1rem;
+}
+
+.WelcomePage-button {
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 1rem;
+
+    width: fit-content;
+}
+
+@keyframes loginAnimate {
+    from    { width: 0; }
+    to      { width: 1; }
+}

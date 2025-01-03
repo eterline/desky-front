@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { App } from "./components/App";
-import { Provider } from "react-redux";
-import { storeRedux } from "./store/store";
+
+import React from "react";
 
 const rootID = "app-root";
 const rootDiv = document.getElementById("app-root");
@@ -13,7 +13,7 @@ if (!rootDiv) {
 const rootContainer = createRoot(rootDiv);
 
 rootContainer.render(
-    <Provider store={storeRedux}>
+    <React.StrictMode>
         <App />
-    </Provider>
+    </React.StrictMode>
 );

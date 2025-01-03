@@ -1,0 +1,39 @@
+@media (orientation: portrait) {
+
+    ._topIndex-phone {
+        z-index: 1;
+    }
+
+    ._phoneVisible {
+        display: inline-block;
+    }
+
+    ._absolutePosit-phone {
+        position: absolute;
+    }
+
+}
+
+._phoneVisible {
+    display: none;
+}
+
+._topIndex {
+    z-index: 1;
+}
+
+@keyframes swapHeight {
+    from    { height: 0%;   scale: .5; }
+    to      { height: 100%; scale: 1; }
+}
+
+@keyframes swapScale {
+    from    { scale: .1; }
+    to      { scale: 1; }
+}
+
+@keyframes swapWidth {
+    from    { width: 0%; }
+    to      { width: 100%; }
+}
+

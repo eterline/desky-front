@@ -6,7 +6,7 @@ interface AppIconProps {
     size?: string
 }
 
-const AppIcon: FC<AppIconProps> = ({name, size}) => {
+const UiIcon: FC<AppIconProps> = ({name, size}) => {
 
     const IconSrc = UiIcons[name] ?? UiIcons["alert-circle"];
     const targetSize = size ?? '2rem'
@@ -17,4 +17,4 @@ const AppIcon: FC<AppIconProps> = ({name, size}) => {
     />)
 };
 
-export default AppIcon;
+export default UiIcon;

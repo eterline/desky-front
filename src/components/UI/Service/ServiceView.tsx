@@ -1,14 +1,18 @@
 import { useServiceContext } from '../../../hooks';
 import { SelectService } from '../../../libs/serviceMap';
 import { ErrorMsg } from '../Functional';
+import { useEffect } from 'react';
 
 import './ServiceView.css';
 
 const ServiceView = () => {
 
     const { selectedService } = useServiceContext();
-    console.log(selectedService)
     const ServiceComponent = SelectService(selectedService);
+
+    useEffect(() => {
+        document.title = `Desky [${selectedService}]`;
+    }, [selectedService]);
 
     return (
         <div className='ServiceView'>

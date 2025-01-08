@@ -17,7 +17,7 @@ const Main: FC = () => {
 
     return (
         <div className="MainPage">
-            <ServiceProvider defaults="apps">
+            <ServiceProvider defaults="services">
                 <div style={{display: 'flex', width: '100%', height: '100vh'}}>
 
                     <ServiceNav show={status}/>

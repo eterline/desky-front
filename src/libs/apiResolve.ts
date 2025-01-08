@@ -1,4 +1,6 @@
-export const API: ApiPattern = {
+import { ExecStates, PVEData } from "../libs/pveService";
+
+export const API = {
     baseUrl:  "/api",
     version: (version: number) => `v${version}`,
 
@@ -8,6 +10,16 @@ export const API: ApiPattern = {
       system: "host/system",
       load:   "host/load",
       cpu:    "host/cpu" 
+    },
+
+    pve: {
+      status: (session: number, host: string) => `pve/${session}/${host}/status`,
+      devices: (session: number, host: string) => `pve/${session}/${host}/devices`,
+      exec: (data: PVEData, cmd: ExecStates) => `pve/${data.session}/${data.host}/devices/${data.vmid}/${cmd}`
+    },
+
+    system: {
+      status: "/system/systemd/status"
     },
 
     apps: {

@@ -1,0 +1,36 @@
+.AppAppend {
+    padding: .2rem;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    position: absolute;
+    bottom: .5rem;
+    left: .5rem;
+
+    background-color: var(--body-bg-trans-80);
+    transition: 0.2s ease-in-out transform;
+    border-radius: .5rem;
+
+    cursor: pointer;
+}
+
+.AppAppend_inner {
+    display: flex;
+    filter: invert(1); 
+}
+
+.AppAppend:hover {
+    transform: scale(1.05);
+}
+
+.AppAppend_text {
+    display: none;
+    margin-right: .2rem;
+}
+
+.AppAppend:hover .AppAppend_text {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}

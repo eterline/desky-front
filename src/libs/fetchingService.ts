@@ -42,6 +42,7 @@ export default class FetchingService {
 
             if (!response.ok) {
                 showToast(`HTTP Error: ${response.status}`)
+                this.fetchedData = await response.json();
                 throw new Error(`HTTP Error: ${response.status}`);
             }
 

@@ -79,3 +79,30 @@ body {
 }
 
 /* Main ==================== */
+
+.Toast-Success {
+    color: var(--text);
+    background-color: var(--body-bg-trans-50);
+}
+
+.UsualService {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    animation-name: ServiceShow;
+    animation-duration: .4s;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    -o-animation-iteration-count: 1;
+}
+
+@keyframes ServiceShow {
+    from    {
+        transform: scale(.5);
+        height: 0;
+    }
+    to      {
+        transform: scale(1);
+        height: 100%;
+    }
+}

@@ -5,9 +5,10 @@
 
     border-radius: 0.5em;
     padding: 1em;
+
     margin-top: 0.5em;
 
-    background-color: var(--window-bg-smooth);
+    background-color: var(--body-bg-trans-50);
     box-shadow: 5px 5px 2px var(--body-bg);
 
     transition: 0.2s ease-in-out transform;

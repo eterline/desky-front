@@ -26,7 +26,7 @@ const Welcome = () => {
 
     return (
         <div className="WelcomePage">
-            <h1>Desky Panel</h1>
+            <h1 className="WelcomePage-title">Desky Panel</h1>
 
                 <div className="WelcomePage-form">
                     <h2>Welcome!</h2>

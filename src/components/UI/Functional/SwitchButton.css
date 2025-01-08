@@ -1,6 +1,6 @@
 .SwitchButton {
     text-align: center;
-
+    pointer-events: fill;
     border-radius: .2rem;
 }
 

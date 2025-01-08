@@ -1,14 +1,15 @@
 import { FC } from "react";
 
 import AppService from '../components/UI/App/AppService';
+import PveService from '../components/UI/Pve/PveService';
+import SystemService from '../components/UI/System/SystemService';
 
 export type ServiceMapPattern  = Map<string, FC>
 
 const ServiceMap: ServiceMapPattern = new Map([
-    ['apps', AppService],
-    ['stats', AppService],
-    ['proxmox', AppService],
-    ['docker', AppService],
+    ['services',    AppService],
+    ['proxmox',     PveService],
+    ['system',      SystemService]
 ]);
 
 const SelectService = (service: string): FC => {

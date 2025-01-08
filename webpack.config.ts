@@ -37,7 +37,8 @@ module.exports = (env: configEnv) => {
         plugins: [
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, "public", "index.html"),
-                cache: false
+                cache: false,
+                favicon: "./src/components/favicon.svg"
             }),
             new MiniCssExtractPlugin({
                 filename: "static/styles.[contenthash].css",

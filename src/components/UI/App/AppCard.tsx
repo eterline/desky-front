@@ -15,7 +15,7 @@ const AppCard: FC<AppCardProps> = ({name, link, icon, description}) => {
             </div>
 
             <div className="AppCard-name">
-                { stringCutter(name, 10) }
+                { stringCutter(name, 8) }
             </div>
 
         </div>

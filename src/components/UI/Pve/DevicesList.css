@@ -1,9 +1,12 @@
 .DevicesList {
-    width: 100%;
+    width: 80%;
     height: 100%;
 
     display: flex;
     gap: 1rem;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 @media (orientation: portrait) {

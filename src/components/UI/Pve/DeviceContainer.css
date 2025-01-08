@@ -7,6 +7,8 @@
     margin-bottom: .5rem;
     padding: .5rem;
 
+    width: auto;
+
     margin-left: .5rem;
     margin-right: .5rem;
 }
@@ -26,7 +28,7 @@
 
     background-color: var(--body-bg-trans-50);
 
-    gap: .5rem;
+    gap: .2rem;
 
     padding: .2rem;
 
@@ -38,7 +40,8 @@
 .DeviceContainer-info {
     display: flex;
     flex-direction: column;
-    width: 80%;
+
+    width: 100%;
 
     gap: .2rem;
 
@@ -52,10 +55,9 @@
     background-color: var(--body-bg-trans-80);
     border-radius: .5rem;
 
-    display: flex;
-    flex-direction: column;
 
-    width: 80%;
+
+    width: 100%;
 
     overflow: hidden;
 
@@ -64,14 +66,13 @@
     font-size: 1rem;
 
 
-    text-align: center;
+    text-align: left;
 }
 
 .DeviceContainer-info_text strong {
     background-color: var(--window-bg);
     color: var(--text-dark);
     width: 60%;
-    display: flex;
 
     padding-left: 1rem;
     text-align: left;
@@ -84,14 +85,14 @@
     width: 20%;
     display: flex;
     flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
 }
 
 .Status-green {
+
+
     padding-left: .5rem;
     padding-right: .5rem;
+    font-size: 1.2rem;
 
     text-align: center;
     color: green;
@@ -104,9 +105,11 @@
 }
 
 .Status-red {
+
+
     padding-left: .5rem;
     padding-right: .5rem;
-    font-size: 100%;
+    font-size: 1.2rem;
 
     text-align: center;
     color: red;
@@ -127,7 +130,7 @@
     }
 
     .DeviceContainer-logo {
-        width: 100%;
+        width: 60%;
     }
     .DeviceContainer-info {
         width: 100%;

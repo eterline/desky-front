@@ -11,6 +11,7 @@ interface configEnv {
     mode:       envMode
     serverPort: number
     build:      buildFolder
+    proxy:      boolean
 }
 
 
@@ -119,7 +120,7 @@ module.exports = (env: configEnv) => {
 
             port: env.serverPort ?? 3000,
 
-            proxy: [
+            proxy: env.proxy ? [
                 {
                   context: ['/api/v1'],
                   target: 'http://localhost:3000/',
@@ -129,7 +130,7 @@ module.exports = (env: configEnv) => {
                     context: ['/login'],
                     target: 'http://localhost:3000/',
                 },
-            ],
+            ] : [],
         },
     };
 }

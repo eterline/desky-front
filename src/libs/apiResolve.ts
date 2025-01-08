@@ -19,7 +19,7 @@ export const API = {
     },
 
     system: {
-      status: "/system/systemd/status"
+      status: "system/systemd/status"
     },
 
     apps: {

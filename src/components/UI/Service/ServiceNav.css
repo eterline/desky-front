@@ -9,6 +9,16 @@
     padding: .4rem;
 }
 
+.ServiceNav-logo {
+    font-size: 2rem;
+
+    text-align: center;
+
+    background-color: var(--body-bg-trans-50);
+    padding: .2rem;
+    border-radius: .5rem;
+}
+
 
 @media (orientation: portrait) {
 
@@ -29,7 +39,7 @@
     }    
     
     .ServiceNav-logo {
-        display: none;
+        font-size: 1rem;
     }
 
     .ServiceNav_showed {

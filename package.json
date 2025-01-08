@@ -9,6 +9,7 @@
     "build:prod": "webpack --config webpack.config.ts --env mode=production build=web",
     "test": "test",
     "start": "webpack serve --open --env serverPort=9400",
+    "start-proxy": "webpack serve --open --env serverPort=9400 --proxy true",
     "clear": "./clear.sh",
     "clone": "npm run build:prod && ./clone.sh"
   },

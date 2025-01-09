@@ -1,0 +1,110 @@
+.StatsTable {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 30%;
+    height: 100%;
+    width: fit-content;
+
+    background-color: var(--body-bg-trans-50);
+    border-radius: .5rem;
+}
+
+.StatsTable-bar {
+    display: flex;
+    justify-content: center; /* Центровка по горизонтали */
+    align-items: center;    /* Центровка по вертикали */
+    vertical-align: middle;
+}
+
+.StatsTable-main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.StatsTable-title {
+    padding: .2rem;
+    margin: 0;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    background-color: var(--body-bg-trans-50);
+    border-radius: .5rem .5rem 0 0;
+}
+
+.StatsTable-div_load {
+    display: flex; /* Используем flexbox для управления размещением элементов */
+    flex-wrap: wrap; /* Позволяет переносить элементы на новую строку, если не хватает места */
+    justify-content: space-around; /* Распределяет элементы равномерно */
+
+    width: fit-content;
+    height: 100%;
+
+    flex-direction: column;
+
+    background-color: var(--body-bg-trans-30);
+    padding: .5rem;
+
+    border-radius: .5rem;
+}
+
+.StatsTable-div-title {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.StatsTable-div_load .CircleBar {
+    gap: .5rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.StatsTable-div_memory .CircleBar {
+    margin-top: .5rem;
+}
+
+.StatsTable-div_memory {
+    text-align: center;
+
+    background-color: var(--window-bg-trans-30);
+
+    height: fit-content;
+
+
+    padding: .5rem;
+}
+
+.StatsTable-div-param {
+    background-color: var(--body-bg-trans-30);
+    margin-top: .2rem;
+
+    width: 100%;
+}
+
+.StatsTable-div_memory-param strong {
+    margin-right: 1rem;
+}
+
+.TemperatureStats {
+    display: flex;
+    flex-direction: column;
+
+    align-content: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.TemperatureStats-params {
+    min-height: 50%;
+    overflow-y: auto;
+}
+
+.TemperatureStats .StatsTable-div-param {
+    text-align: left;
+}

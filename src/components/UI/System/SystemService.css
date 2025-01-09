@@ -1,1 +1,13 @@
-.SystemService {}
+.SystemService {
+    display: flex;
+
+    height: 100%;
+    width: 100%;
+
+    padding: 1rem;
+
+    animation-name: sweep ;
+    animation-iteration-count: 1;
+    animation-duration: .5s;
+}
+

@@ -22,8 +22,9 @@ const ServiceNav: FC<ServiceNavProps> = ({ show }) => {
         <div className={`ServiceNav ${displayClass}`}>
             <h1 className='ServiceNav-logo'>Desky</h1>
             <hr />
-            {Array.from(ServiceMap.entries()).map(([key]) => (
+            {Array.from(ServiceMap.entries()).map(([key], i) => (
                 <ServiceCard
+                    key={i}
                     serviceName={key} iconName={key}
                     onClick={ () => { setSelectedService(key) } }
                 />

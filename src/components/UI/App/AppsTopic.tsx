@@ -9,7 +9,7 @@ interface AppsTopicProps {
 
 const AppsTopic: FC<AppsTopicProps> = ({topic, apps}) => {
 
-    const AppMap = apps.map((cardProps) => (<AppCard {...cardProps}/>));
+    const AppMap = apps.map((cardProps, i) => (<AppCard key={i} {...cardProps}/>));
 
     return (
         <div className="AppsTopic">

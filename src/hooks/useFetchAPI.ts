@@ -19,7 +19,7 @@ const useFetchAPI = <DataType>(url: string): FetchApi<DataType> => {
     
     useEffect(() => {
 
-        const Fetcher = new FetchingService(url, true);
+        const Fetcher = new FetchingService(url, false);
     
         Fetcher.fetchInfo()
         .then(() => {

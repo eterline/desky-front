@@ -28,3 +28,7 @@ export const SecToHHMMSSString = (sec: number): string => {
 
   return hours+'H '+minutes+'M '+seconds+'S';
 }
+
+export const bytesToGB = (b: number, after?: number): string =>{
+  return `${(b/1024/1024/1024).toFixed(after ?? 0)} GB`
+}

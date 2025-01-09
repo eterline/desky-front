@@ -6,6 +6,7 @@ import { useFetchAPI } from '../../../hooks';
 import { resolveApi, API } from '../../../libs/apiResolve';
 import { ErrorMsg, SwitchButton } from '../Functional';
 import FetchingService from '../../../libs/fetchingService';
+import LoadingContainer from '../Functional/LoadingContainer';
 
 interface ErrResponse {
     code: string
@@ -28,7 +29,7 @@ const DevicesList: FC<DevicesListProps> = ({session, host}) => {
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
-    const Fetcher = new FetchingService(resolveApi(API.pve.devices(session, host)), true);
+    const Fetcher = new FetchingService(resolveApi(API.pve.devices(session, host)), false);
 
     const fetchData = useCallback(() => {
     
@@ -51,7 +52,7 @@ const DevicesList: FC<DevicesListProps> = ({session, host}) => {
     }, [fetchData]);
 
     if (error) { return <ErrorMsg text={error} type="notice" /> }
-    if (loading || data === null) { return <div>Loading...</div> }
+    if (loading || data === null) { return <LoadingContainer/> }
 
     const { qemu, lxc } = data
 
@@ -60,8 +61,8 @@ const DevicesList: FC<DevicesListProps> = ({session, host}) => {
 
             <details className='DevicesList-details' open> <summary>QEMU</summary>
                 {
-                    qemu.map((device) => (
-                        <DeviceContainer dev={device} type="qemu" host={host} session={session} updateFunc={fetchData} />
+                    qemu.map((device, idx) => (
+                        <DeviceContainer key={idx} dev={device} type="qemu" host={host} session={session} updateFunc={fetchData} />
                     ))
                     .sort((a, b) => {
                         return a.props.dev.name.localeCompare(b.props.dev.name);
@@ -71,8 +72,8 @@ const DevicesList: FC<DevicesListProps> = ({session, host}) => {
 
             <details className='DevicesList-details' open> <summary>LXC</summary>
             {
-                    lxc.map((device) => (
-                        <DeviceContainer dev={device} type="lxc" host={host} session={session} updateFunc={fetchData} />
+                    lxc.map((device, idx) => (
+                        <DeviceContainer key={idx} dev={device} type="lxc" host={host} session={session} updateFunc={fetchData} />
                     ))
                     .sort((a, b) => {
                         return a.props.dev.name.localeCompare(b.props.dev.name);

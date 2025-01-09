@@ -19,7 +19,9 @@ export const API = {
     },
 
     system: {
-      status: "system/systemd/status"
+      status: "system/systemd/status",
+      stats: "system/stats",
+      tty: "system/tty"
     },
 
     apps: {

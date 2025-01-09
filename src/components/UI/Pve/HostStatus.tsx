@@ -8,6 +8,7 @@ import { UiIcon } from "../Icons";
 
 import './HostStatus.css';
 import { ErrorMsg } from '../Functional';
+import LoadingContainer from '../Functional/LoadingContainer';
 
 interface HostStatusProps {
     session:    number
@@ -23,7 +24,7 @@ const HostStatus: FC<HostStatusProps> = ({session, host}) => {
     );
 
     if (error) return (renderComponent(<ErrorMsg text={error} type='warn'/>))
-    if (loading) return (renderComponent(<div>Loading...</div>))
+    if (loading) return (renderComponent(<LoadingContainer/>))
 
     const {name, load, fs, ram, cpu, uptime, kernel} = data
 

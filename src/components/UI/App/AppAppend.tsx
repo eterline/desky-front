@@ -2,7 +2,8 @@ import { FC, useState } from 'react';
 import { UiIcon } from '../Icons';
 import './AppAppend.css';
 import Modal from 'react-modal';
-import AddApp from './AddApp';
+import { ModalWindow } from '../Functional';
+import AppService from '../../../libs/appService';
 
 interface AppAppendProps {
     icon?: string
@@ -13,14 +14,34 @@ interface AppAppendProps {
 
 const AppAppend: FC<AppAppendProps> = ({icon, size, text, updateFunc}) => {
 
+    const [appTopic, setAppTopic] = useState<string>('');
+    const [appName, setAppName] = useState<string>('');
+    const [appDescription, setAppDescription] = useState<string>('');
+    const [appLink, setAppLink] = useState<string>('');
+    const [appIcon, setAppIcon] = useState<string>('');
+
+    const api = new AppService()
+
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
+    const handleReq = () => {
+        if (appName === '') {return}
+        api.add(appTopic, {
+            name: appName,
+            description: appDescription,
+            link: appLink,
+            icon: appIcon
+        })
+
+        setTimeout(updateFunc, 1500)
+    }
 
     const openModal = () => {
         setModalIsOpen(true);
     };
 
     const closeModal = () => {
-        setModalIsOpen(false);
+        setTimeout(() => {setModalIsOpen(false)}, 50)
     };
 
     return (
@@ -30,17 +51,39 @@ const AppAppend: FC<AppAppendProps> = ({icon, size, text, updateFunc}) => {
             </div>
             <div className='AppAppend_text'>{text ?? 'Append App'}</div>
 
-            <Modal
-                isOpen={modalIsOpen}
-                onRequestClose={closeModal}
-                contentLabel="Add App"
-                style={{
-                    overlay: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
-                    content: { color: 'black', padding: '20px', width: 'fit-content', height: 'fit-content', margin: 'auto' },
-                }}
-            >
-                <AddApp updateFunc={updateFunc} closeFunc={closeModal} />
-            </Modal>
+            <ModalWindow 
+                opened={modalIsOpen}
+                eventClose={closeModal}
+                closerFunc={closeModal}
+                doFunc={handleReq}
+                title='Append App'
+                buttonText='ADD APP'
+                innerContent={
+                <div className="AppAppend-main">
+                    <p>main</p>
+                    <label>
+                        Topic:           
+                        <input placeholder="Serving" value={appTopic} onChange={(e) => setAppTopic(e.target.value)} />
+                    </label>
+                    <label>
+                        App Name:           
+                        <input placeholder="Docker" value={appName} onChange={(e) => setAppName(e.target.value)} />
+                    </label>
+                    <p>info</p>
+                    <label>
+                        Description:        
+                        <input placeholder="Container engine" value={appDescription} onChange={(e) => setAppDescription(e.target.value)} />
+                    </label>
+                    <label>
+                        Link:               
+                        <input placeholder="http://docker.lan" value={appLink} onChange={(e) => setAppLink(e.target.value)} />
+                    </label>
+                    <label>
+                        Icon (Name/URL):    
+                        <input placeholder="docker" value={appIcon} onChange={(e) => setAppIcon(e.target.value)} />
+                    </label>
+                </div>}
+            />
         </div>
     );
 };

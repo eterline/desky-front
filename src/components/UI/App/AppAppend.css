@@ -34,3 +34,25 @@
     justify-content: center;
     align-items: center
 }
+
+.AppAppend-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.AppAppend-main label {
+    display: flex;
+    flex-direction: column;
+}
+
+.AppAppend-main p {
+    text-align: center;
+    margin: 0;
+}
+
+.AppAppend-main input {
+    width: 400px;
+
+    border-radius: .5rem;
+    padding: .2rem;
+}

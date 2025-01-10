@@ -4,6 +4,8 @@ import showToast from '../libs/showToats';
 
 const httpErrorString = "HTTP error! Status: ";
 
+type Method = "DELETE" | "PUT"
+
 export default class FetchingService {
     protected apiUrl: string;
     protected fetchedData: any;
@@ -54,11 +56,11 @@ export default class FetchingService {
         }
     }
 
-    async postInfo(body: any, headers: HeadersInit = {}): Promise<any> {
+    async postInfo(body: any, headers: HeadersInit = {}, method?: Method): Promise<any> {
         try {
             this.logDebug(`Posting to URL: ${this.apiUrl}`);
             const response = await fetch(this.apiUrl, {
-                method: "POST",
+                method: (method ?? "POST"),
                 headers: this.getHeaders(headers),
                 body: JSON.stringify(body),
             });

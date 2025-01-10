@@ -38,7 +38,7 @@ const SystemdCalc: FC<SystemdUnitList> = (units) => {
 
     return (
         <div className='SystemdCalc'>
-            <h1 className="SystemdCalc-title">CPU Info</h1>
+            <h1 className="SystemdCalc-title">Units Info</h1>
             <div className="SystemdCalc-param">
                 <strong>All Units:</strong>{states.all}
             </div>

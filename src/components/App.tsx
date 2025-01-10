@@ -7,8 +7,11 @@ import { Pictures } from '../assets';
 
 import './App.css';
 import './AppPhone.css';
+import Modal from 'react-modal';
 
 export const App = () => {
+
+    Modal.setAppElement("#app-root");
 
     const backgroundStyle = {
         height: '100vh',

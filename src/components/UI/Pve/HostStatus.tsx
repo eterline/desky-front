@@ -46,28 +46,28 @@ const HostStatus: FC<HostStatusProps> = ({session, host}) => {
                 ["Freq",        cpu.frequency + " MHZ"],
             ])
         }/>
-        <HostStatusInfoBlock
+        {/* <HostStatusInfoBlock
             header='RAM'
             child={new Map([
                 ["Total",       ram.total.toString()],
                 ["Used",        ram.used.toString()],
             ])
-        }/>
+        }/> */}
         <HostStatusInfoBlock
-            header='RAM'
+            header='LOAD'
             child={new Map([
                 ["load-5",      load[0]],
                 ["load-10",     load[1]],
                 ["load-15",     load[2]],
             ])
         }/>
-        <HostStatusInfoBlock
+        {/* <HostStatusInfoBlock
             header='File System'
             child={new Map([
                 ["Total",       fs.total.toString()],
                 ["Used",        fs.used.toString()],
             ])
-        }/>
+        }/> */}
     </div>));
 };
 

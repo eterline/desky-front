@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import './DeviceContainer.css';
 import { UiIcon } from '../Icons';
-import { SecToHHMMSSString } from '../../../libs/Utils';
+import { bytesToGB, SecToHHMMSSString } from '../../../libs/Utils';
 import ExecButton from './ExecButton';
 
 export interface DeviceContainerProps {
@@ -50,15 +50,14 @@ const DeviceContainer: FC<DeviceContainerProps> = ({dev, type, host, session, up
             <hr />
 
             <div className='DeviceContainer-info'>
-            <p className={ status==='running' ? 'Status-green' : 'Status-red' }>{'⏼ ' + status}</p>
+            <p className={ status==='running' ? 'Status-green' : 'Status-red' }>{`⏼ ${status} | PID:${pid}`}</p>
                 <div className='DeviceContainer-info_text'> <strong>Name:</strong> {name ?? 'null'} </div>
-                <div className='DeviceContainer-info_text'> <strong>Tags:</strong> {tags ?? 'null'} </div>
                 <div className='DeviceContainer-info_text'> <strong>Vmid:</strong> {vmid ?? 'null'} </div>
+                <div className='DeviceContainer-info_text'> <strong>Tags:</strong> {tags ?? 'null'} </div>
                 <div className='DeviceContainer-info_text'> <strong>Cpus:</strong> {cpus ?? 'null'} </div>
-                <div className='DeviceContainer-info_text'> <strong>RX:</strong> {netRX ? (netRX/1024/8) : 'none'} </div>
-                <div className='DeviceContainer-info_text'> <strong>TX:</strong> {netTX ? (netTX/1024/8) : 'none'} </div>
+                <div className='DeviceContainer-info_text'> <strong>Net IN:</strong> {netRX ? (bytesToGB(netRX, 3)) : 'none'} </div>
+                <div className='DeviceContainer-info_text'> <strong>Net OUT:</strong> {netTX ? (bytesToGB(netTX, 3)) : 'none'} </div>
                 <div className='DeviceContainer-info_text'> <strong>Uptime:</strong> {SecToHHMMSSString(uptime) ?? 'none'} </div>
-                <div className='DeviceContainer-info_text'> <strong>PID:</strong> {pid ?? 'null'} </div>
             </div>
         </div>
     );

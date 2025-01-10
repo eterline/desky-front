@@ -1,0 +1,65 @@
+.AddApp {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    height: fit-content;
+
+    font-size: 1rem;
+}
+
+.AddApp hr {
+    width: 100%;
+}
+
+.AddApp input {
+    border-radius: .2rem;
+
+    width: 100%;
+
+    font-size: 1.2rem;
+}
+
+.AddApp-btn {
+    background-color: var(--body-bg-trans-80);
+    color: var(--text);
+    padding: .3rem;
+    border-radius: .2rem;
+
+    width: fit-content;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 1rem;
+
+    cursor: pointer;
+}
+
+.AddApp-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+.AddApp-title h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.AddApp-btn_close {
+    cursor: pointer;
+    font-size: 1rem;
+    color: #007BFF;
+
+    transition: all .2 ease-in-out;
+}
+
+.AddApp-btn_close:hover {
+    color: #0056b3;
+    transform: scale(1.2);
+}

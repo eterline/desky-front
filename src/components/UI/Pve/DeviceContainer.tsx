@@ -40,7 +40,7 @@ const DeviceContainer: FC<DeviceContainerProps> = ({dev, type, host, session, up
     const { status, name, tags, vmid, cpus, netRX, netTX, uptime, pid } = dev
 
     return (
-        <div className={inactive ? 'DeviceContainer DeviceContainer-inactive' : 'DeviceContainer'}>
+        <div className={inactive ? 'DeviceContainer Block-inactive' : 'DeviceContainer'}>
             <div className='DeviceContainer-logo'>
                 <UiIcon name={`device-${type}`} size='100%'/>
                 <ExecButton data={{host, session, vmid}} upperFunc={switchState(5)} command={status==='running' ? 'shutdown' : 'start'}/>

@@ -13,7 +13,7 @@ interface ErrResponse {
     message: string
 }
 
-const useFetchAPI = <DataType>(url: string): FetchApi<DataType> => {
+const useFetchAPI = <DataType>(url: string, refetch?: number): FetchApi<DataType> => {
 
     const [status, setStatus] = useState<FetchApi<DataType>>({loading: true, error: null, data: null});
     
@@ -29,7 +29,7 @@ const useFetchAPI = <DataType>(url: string): FetchApi<DataType> => {
             setStatus({loading: false, error: Fetcher.getAllData<ErrResponse>().message || err.message, data: null})
         });
     
-    }, [url]);
+    }, [url, refetch]);
 
     return status;
 };

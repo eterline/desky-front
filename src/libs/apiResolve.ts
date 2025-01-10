@@ -1,5 +1,7 @@
 import { ExecStates, PVEData } from "../libs/pveService";
 
+type SystemdCmd = "stop" | "start" | "restart"
+
 export const API = {
     baseUrl:  "/api",
     version: (version: number) => `v${version}`,
@@ -20,6 +22,7 @@ export const API = {
 
     system: {
       status: "system/systemd/status",
+      unitExec: (unit: string, cmd: SystemdCmd) => `/system/systemd/${unit}/${cmd}`,
       stats: "system/stats",
       tty: "system/tty"
     },

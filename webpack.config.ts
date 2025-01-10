@@ -124,7 +124,6 @@ module.exports = (env: configEnv) => {
                   context: ['/api/v1'],
                   target: 'http://localhost:3000/',
                   ws: true,
-                  changeOrigin: true,
                   sockPort: 3000
                 },
 

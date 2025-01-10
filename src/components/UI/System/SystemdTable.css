@@ -1,0 +1,41 @@
+.SystemdTable {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--body-bg-trans-50);
+    border-radius: .5rem;
+
+    height: 100%;
+    width: 100%;
+}
+
+.SystemdTable hr {
+    width: 100%;
+}
+
+.SystemdTable-main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    overflow-y: auto;
+
+    padding: .5rem;
+
+    gap: .5rem
+}
+
+.SystemdTable-title {
+    padding: .2rem;
+    margin: 0;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    background-color: var(--body-bg-trans-50);
+    border-radius: .5rem .5rem 0 0;
+}

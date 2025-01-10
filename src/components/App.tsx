@@ -10,13 +10,9 @@ import './AppPhone.css';
 
 export const App = () => {
 
-    const bgPicture = Pictures["login-bg"]
-
-    console.log(bgPicture)
-
     const backgroundStyle = {
         height: '100vh',
-        backgroundImage: `url(${bgPicture})`,
+        backgroundImage: `url(${Pictures["login-bg"]})`,
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
         backgroundSize: 'cover',

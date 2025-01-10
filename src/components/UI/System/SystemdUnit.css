@@ -1,0 +1,61 @@
+.SystemdUnit {
+    display: flex;
+    flex-direction: column;
+
+    height: fit-content;
+
+    background-color: var(--window-bg-trans-50);
+
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.SystemdUnit-param {
+    background-color: var(--body-bg-trans-30);
+    margin-top: .2rem;
+
+    width: 100%;
+    
+    border-radius: .5rem;
+
+    overflow-wrap: normal;
+}
+
+.SystemdUnit-param strong {
+    background-color: var(--body-bg-trans-30);
+    margin-right: .5rem;
+
+    padding-left: .5rem;
+    padding-right: .5rem;
+
+    border-radius: .5rem;
+}
+
+.SystemdUnit-btn {
+    margin-right: auto;
+    max-width: 50%;
+
+    border-radius: .5rem;
+
+    padding: .2rem;
+
+    user-select: none;
+    cursor: pointer;
+
+    background-color: var(--body-bg-trans-80);
+    margin-top: .5rem;
+}
+
+.SystemdUnit-btn {
+    margin-top: .5rem;
+
+    transition: all .4s ease-in-out;
+}
+
+.SystemdUnit-btn:hover {
+    filter: invert(1);
+}
+
+.SystemdUnit-btn_start { background-color: rgba(255, 0, 0, 0.5);}
+.SystemdUnit-btn_stop {  background-color: rgba(9, 255, 0, 0.5); }
+.SystemdUnit-btn_restart {  background-color: rgba(255, 217, 0, 0.5); }

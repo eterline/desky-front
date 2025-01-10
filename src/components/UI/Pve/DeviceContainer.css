@@ -13,11 +13,6 @@
     margin-right: .5rem;
 }
 
-.DeviceContainer-inactive {
-    opacity: .5;
-    pointer-events: none;
-}
-
 .DeviceContainer-logo {
     display: flex;
 

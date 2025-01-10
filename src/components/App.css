@@ -152,3 +152,12 @@ body {
     flex-direction: column;
     
 }
+
+.scroll-y {
+    overflow-y: auto;
+}
+
+.Block-inactive {
+    opacity: .5;
+    pointer-events: none;
+}

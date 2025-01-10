@@ -18,7 +18,7 @@ export class SystemdService {
 
     execUnit(unit: string, cmd: SystemdCmd) {
 
-        const api = new FetchingService(resolveApi(''))
+        const api = new FetchingService(resolveApi(API.system.unitExec(unit, cmd)))
 
         api.postInfo({})
             .then(() => {

@@ -9,24 +9,28 @@ import { UiIcon } from "../Icons";
 import './HostStatus.css';
 import { ErrorMsg } from '../Functional';
 import LoadingContainer from '../Functional/LoadingContainer';
+import { useVESessionContext } from '../../../hooks/useVESessionContext';
 
-interface HostStatusProps {
-    session:    number
-    host:       string
+interface NodeStatusProps {
+    ss?:    number
+    node?:       string
 }
 
-const HostStatus: FC<HostStatusProps> = ({session, host}) => {
-
-    const { loading, error, data } = useFetchAPI<PveStatus>(resolveApi(API.pve.status(session, host)));
+const NodeStatus: FC<NodeStatusProps> = ({ss, node}) => {
 
     const renderComponent = (child: React.ReactNode) => (
         <div className='HostStatus'>{child}</div>
     );
 
+    const { session } = useVESessionContext();
+    if (!session) return (renderComponent(<LoadingContainer/>))
+
+    const { loading, error, data } = useFetchAPI<PveStatus>(resolveApi(API.pve.status(session.session, session.node)));
+
     if (error) return (renderComponent(<ErrorMsg text={error} type='warn'/>))
     if (loading) return (renderComponent(<LoadingContainer/>))
 
-    const {name, load, fs, ram, cpu, uptime, kernel} = data
+    const { name, load, cpu, uptime, kernel } = data
 
     return (renderComponent(<div className='HostStatus-info_block-pad'>
 
@@ -71,4 +75,4 @@ const HostStatus: FC<HostStatusProps> = ({session, host}) => {
     </div>));
 };
 
-export default HostStatus;
+export default NodeStatus;

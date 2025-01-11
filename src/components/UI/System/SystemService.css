@@ -13,3 +13,9 @@
     animation-duration: .5s;
 }
 
+@media (orientation: portrait) {
+    .SystemService {
+        flex-direction: column;
+    }
+}
+

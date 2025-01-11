@@ -107,3 +107,11 @@
 .TemperatureStats .StatsTable-div-param {
     text-align: left;
 }
+
+@media (orientation: portrait) {
+    .StatsTable {
+        display: none;
+        width: 100%;
+        font-size: .8rem;
+    }
+}

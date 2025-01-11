@@ -16,15 +16,6 @@ interface QueryParams {
     [key: string]: string;
 }
 
-//   useEffect(() => {
-//     const socket = new WebSocket(`/api/v1/system/stats?DeskyJWT=${getItemLocalStorage('token')}`);
-
-//     socket.addEventListener('message', (event) => {
-//         console.log(event);
-//     });
-
-// }, []);
-
 export default class WSService {
 
     private WS: WebSocket| null = null;

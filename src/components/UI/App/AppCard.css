@@ -56,5 +56,6 @@
 @media (orientation: portrait) {
     .AppCard {
         padding: .2em;
+        height: fit-content;
     }
 }

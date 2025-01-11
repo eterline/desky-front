@@ -1,5 +1,10 @@
 import { useContext, createContext } from 'react';
 
+export interface ServiceContextProps {
+    selectedService: string;
+    setSelectedService: (service: string) => void;
+}
+
 export const ServiceContext = createContext<ServiceContextProps | undefined>(undefined);
 
 export const useServiceContext = () => {
@@ -9,10 +14,5 @@ export const useServiceContext = () => {
     }
     return context;
 };
-
-export interface ServiceContextProps {
-    selectedService: string;
-    setSelectedService: (service: string) => void;
-}
 
 export default useServiceContext;

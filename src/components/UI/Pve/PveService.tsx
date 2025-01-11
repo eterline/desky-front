@@ -3,6 +3,8 @@ import './PveService.css'
 import HostStatus from './HostStatus';
 import DevicesList from './DevicesList';
 import { usePveHost } from '../../../hooks';
+import VESessionProvider from './VESessionProvider';
+import SessionSelect from './SessionSelect';
 
 const Device = {
     "status": "stopped",
@@ -15,15 +17,15 @@ const Device = {
 }
 
 const PveService: FC = () => {
-    const {selected, setSelected} = usePveHost();
-
-    useEffect( () => {setSelected(0 , 'micro-ve')} ,[])
-
     return (
         <div className='PveService UsualService'>
-            <HostStatus  session={selected.session} host={selected.host}/>
-            <hr />
-            <DevicesList session={selected.session} host={selected.host}/>
+            <VESessionProvider>
+                <SessionSelect/>
+                <hr />
+                <HostStatus/>
+                <hr />
+                <DevicesList/>
+            </VESessionProvider>
         </div>
     );
 };

@@ -51,7 +51,8 @@
 }
 
 .AppAppend-main input {
-    width: 400px;
+    min-width: 200px;
+    max-width: 400px;
 
     border-radius: .5rem;
     padding: .2rem;

@@ -1,5 +1,4 @@
 .AppCard {
-
     width: fit-content;
     height: 10rem;
 
@@ -20,9 +19,13 @@
     transform: scale(1.05);
 }
 
+.AppCard:hover .AppCardModal {
+    display: block;
+}
+
 .AppCard-icon {
     width: 6rem;
-    height: 80%;
+    height: 6rem;
 
     padding: 1em;
 }

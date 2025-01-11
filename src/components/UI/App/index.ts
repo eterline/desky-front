@@ -1,4 +1,4 @@
-interface AppCardProps {
+interface AppCardInfo {
     name:           string;
     link:           string;
     icon:           string;
@@ -7,5 +7,5 @@ interface AppCardProps {
 
 interface AppsTopicProps {
     topic:  string;
-    apps:   AppCardProps[];
+    apps:   AppCardInfo[];
 }

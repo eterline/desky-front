@@ -1,4 +1,4 @@
 interface AppsTopicProps {
     topic:  string;
-    apps:   AppCardProps[];
+    apps:   AppCardInfo[];
 }

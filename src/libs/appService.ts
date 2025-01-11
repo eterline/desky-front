@@ -28,7 +28,7 @@ export default class AppService {
     public delete(topic:  string, query: number) {
         this.api = new FetchingService(resolveApi(API.apps.deleteApp(topic, query)))
         
-        this.api.postInfo({})
+        this.api.postInfo({}, {}, "DELETE")
             .then(() => {
                 showToast(`App deleted`)
             })

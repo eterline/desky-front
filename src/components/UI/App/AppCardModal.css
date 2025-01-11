@@ -1,0 +1,41 @@
+.AppCardModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: none;
+}
+
+.AppCardModal-main {
+    max-width: 500px;
+    width: 100%;
+}
+
+.AppCardModal-main-icon {
+    width: 80px;
+    height: 80px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.AppCardModal-main h1 {
+    text-align: center;
+
+    margin: 0;
+
+    width: 100%;
+}
+
+.AppCardModal-main strong {
+    margin-right: .5rem;
+}
+
+.AppCardModal-main-del {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.AppCardModal-main-del:hover {
+    transform: scale(1.05);
+}

@@ -5,7 +5,7 @@ import './ModalWindow.css';
 interface ModalWindowProps {
     opened: boolean
 
-    eventClose?: (event: React.MouseEvent | React.KeyboardEvent) => void
+    eventClose: (event: React.MouseEvent | React.KeyboardEvent) => void
     closerFunc: () => void
     doFunc?: () => void
 
@@ -16,12 +16,13 @@ interface ModalWindowProps {
     buttonText?: string
 
     notCloseAfter?: boolean
+    paddingHide?: boolean
 }
 
 const ModalWindow: FC<ModalWindowProps> = ({
     eventClose, closerFunc, doFunc,
     opened, blackTheme, title, buttonText, notCloseAfter,
-    innerContent
+    innerContent, paddingHide
 }) => {
 
     const handleClick = () => {
@@ -51,8 +52,8 @@ const ModalWindow: FC<ModalWindowProps> = ({
                 <div className='ModalWindow-content'>
                     {innerContent}
                 </div>
-                <hr />
-                <div className='ModalWindow-padding'>
+                <hr style={{display: (paddingHide ? 'none' : undefined)}} />
+                <div className='ModalWindow-padding' style={{display: (paddingHide ? 'none' : undefined)}}>
                     <div onClick={handleClick} className="ModalWindow-btn_ok">
                         {buttonText ?? 'OK'}
                     </div>

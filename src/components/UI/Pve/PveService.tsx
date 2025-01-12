@@ -5,6 +5,7 @@ import DevicesList from './DevicesList';
 import { usePveHost } from '../../../hooks';
 import VESessionProvider from './VESessionProvider';
 import SessionSelect from './SessionSelect';
+import DisksList from './DisksList';
 
 const Device = {
     "status": "stopped",
@@ -23,6 +24,8 @@ const PveService: FC = () => {
                 <SessionSelect/>
                 <hr />
                 <HostStatus/>
+                {/* <hr />
+                <DisksList/> */}
                 <hr />
                 <DevicesList/>
             </VESessionProvider>

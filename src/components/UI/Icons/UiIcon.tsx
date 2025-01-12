@@ -14,7 +14,7 @@ const UiIcon: FC<AppIconProps> = ({name, size, invert}) => {
     const IconSrc = UiIcons[name] ?? UiIcons["alert-circle"];
     const targetSize = size ?? '2rem'
 
-    return (<img
+    return (<img className="UiIcon"
         src={IconSrc} 
         alt={name}
         style={{

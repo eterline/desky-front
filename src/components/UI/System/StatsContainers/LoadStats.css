@@ -1,0 +1,72 @@
+* {
+    --LoadStats-load1: rgb(255, 153, 0);
+    --LoadStats-load5: green;
+    --LoadStats-load15: rgb(119, 0, 255);
+}
+
+.LoadStats {
+    display: flex;
+
+    width: fit-content;
+    height: fit-content;
+
+    background-color: var(--window-bg);
+
+    border-radius: .5rem;
+    padding: .2rem;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.LoadStats-main {
+    gap: .5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.LoadStats-graphic {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    width: 150px;
+    height: 100%;
+}
+
+.LoadStats-graphic svg {
+    position: absolute;
+}
+
+.LoadStats-main-param {
+    display: flex;
+
+    justify-content: flex-start;
+    align-items: center;
+
+    background-color: var(--body-bg-trans-80);
+
+    border-radius: .2rem;
+    width: 8rem;
+    padding: .2rem;
+}
+
+.LoadStats-main-param .UiIcon {
+    margin-right: 1rem;
+}
+
+.LoadStats-p-1,
+.LoadStats-p-5,
+.LoadStats-p-15 {
+    width: .5rem;
+    height: 100%;
+    margin-right: .5rem;
+
+    border-radius: 10%;
+}
+
+.LoadStats-p-1 {background-color: var(--LoadStats-load1);}
+.LoadStats-p-5 {background-color: var(--LoadStats-load5);}
+.LoadStats-p-15 {background-color: var(--LoadStats-load15);}

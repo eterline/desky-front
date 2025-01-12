@@ -32,3 +32,17 @@ export const SecToHHMMSSString = (sec: number): string => {
 export const bytesToGB = (b: number, after?: number): string =>{
   return `${(b / Math.pow(10,9)).toFixed(after ?? 0)} GB`
 }
+
+export const percentString = (b: number, after?: number): string =>{
+  return `${b.toFixed(after ?? 0)}%`
+}
+
+export const loadColorRGB = (load: number): string => {
+
+  const l = Math.min(100, Math.max(0, load));
+
+  const green = Math.round(255 * (1 - l / 100));
+  const red = Math.round(255 * (l / 100));
+
+  return `rgb(${red} ${green} 0 )`
+}

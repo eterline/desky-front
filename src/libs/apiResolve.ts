@@ -25,7 +25,8 @@ export const API = {
       status: "system/systemd/status",
       unitExec: (unit: string, cmd: SystemdCmd) => `/system/systemd/${unit}/${cmd}`,
       stats: "system/stats",
-      tty: "system/tty"
+      tty: "system/tty",
+      info: "system/info"
     },
 
     apps: {

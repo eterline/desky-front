@@ -19,9 +19,14 @@
     pointer-events: fill;
 
     text-align: center;
+    vertical-align: middle;
 
-    text-align: center;
     padding: .2rem;
+}
+
+.ExecButton-main .UiIcon {
+    display: block;
+    margin: auto 0;
 }
 
 .button-red {

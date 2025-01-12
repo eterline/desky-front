@@ -1,0 +1,98 @@
+.TableLoad {
+    display: flex;
+
+    width: 100%;
+    height: fit-content;
+
+    border-radius: .5rem;
+
+    background-color: var(--window-bg-trans-30);
+
+}
+
+.TableLoad-graphic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+
+    width: fit-content;
+    padding: .5rem .8rem;
+}
+
+.TableLoad-main {
+    display: flex;
+    flex-direction: column;
+
+    width:100%;
+    height: fit-content;
+
+    border-radius: .5rem;
+}
+
+.TableLoad-main-title {
+    margin: 0;
+    padding: .5rem;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+
+    background-color: var(--body-bg-trans-50);
+
+    border-radius: 0 .5rem 0 0;
+}
+
+.TableLoad-main-title .UiIcon {
+    margin-right: .2rem;
+}
+
+.TableLoad-main-parameters {
+    display: flex;
+
+    gap: .2rem;
+
+    padding: .4rem;
+
+    flex-direction: column;
+    width: 100%;
+
+    background-color: var(--window-bg);
+
+    border-radius: 0 0 .5rem 0;
+}
+
+.TableLoad-main-parameters div {
+    margin-right: .4rem;
+    width: 100%;
+
+    padding: .1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    background-color: var(--body-bg-trans-80);
+
+    border-radius: .2rem;
+}
+
+.TableLoad-main-parameters span {
+    display: inline-block;
+    vertical-align: middle;
+
+    border-radius: .2rem;
+}
+
+.TableLoad-main-parameters strong {
+    height: 100%;
+    padding: .1rem;
+
+    margin-right: .5rem;
+
+    display: inline-block;
+
+    background-color: var(--window-bg-trans-80);
+    color: var(--text-dark);
+
+    border-radius: .2rem;
+}

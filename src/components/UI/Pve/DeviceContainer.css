@@ -50,17 +50,11 @@
     background-color: var(--body-bg-trans-80);
     border-radius: .5rem;
 
-
-
     width: 100%;
-
     overflow: hidden;
-
     color: var(--text);
 
     font-size: 1rem;
-
-
     text-align: left;
 }
 
@@ -68,11 +62,14 @@
     background-color: var(--window-bg);
     color: var(--text-dark);
     width: 60%;
-
-    padding-left: 1rem;
     text-align: left;
 
     border-radius: 0 0 .2rem .2rem;
+}
+
+.DeviceContainer-info_text .UiIcon {
+    margin-right: .2rem;
+    margin-left: .2rem;
 }
 
 .DeviceContainer-commands {

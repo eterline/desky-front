@@ -2,6 +2,7 @@ import { FC } from "react";
 import PveService from "../../../libs/pveService";
 import { ExecStates, PVEData } from "../../../libs/pveService";
 import './ExecButton.css'
+import { UiIcon } from "../Icons";
 
 interface ExecButtonProps {
     command: ExecStates
@@ -30,6 +31,7 @@ const ExecButton: FC<ExecButtonProps> = ({data: {session, host, vmid}, upperFunc
     return (
         <div className={`ExecButton`} onClick={handleClick}>
             <div className={`ExecButton-main ${stylesState.get(command)}`}>
+                <UiIcon name='command' invert={true} size=".8em" />
                 {command}
             </div>
         </div>

@@ -1,6 +1,6 @@
 import './SystemService.css';
 import { FC } from 'react';
-import StatsTable from './StatsTable';
+import Stats from './Stats';
 import SystemdTable from './SystemdTable';
 
 
@@ -8,7 +8,7 @@ import SystemdTable from './SystemdTable';
 const SystemService: FC = () => {
     return (
         <div className='SystemService'>
-            <StatsTable />
+            <Stats />
             <SystemdTable />
         </div>
     );

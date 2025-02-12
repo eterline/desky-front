@@ -2,6 +2,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import path from "path";
 
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 // Declare config types
 type envMode = "production" | "development";
 type buildFolder = "build" | "web";
@@ -15,7 +17,7 @@ interface configEnv {
 
 
 // Config options
-module.exports = (env: configEnv) => {
+export default (env: configEnv) => {
 
     const isDevelopMode = (env.mode === "development");
     const pathStatic: string = "static";
@@ -121,7 +123,7 @@ module.exports = (env: configEnv) => {
 
             proxy: env.proxy ? [
                 {
-                  context: ['/api/v1'],
+                  context: ['/api'],
                   target: 'http://localhost:3000/',
                   ws: true,
                   sockPort: 3000

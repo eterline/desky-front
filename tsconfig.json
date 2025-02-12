@@ -4,8 +4,8 @@
 
       "noImplicitAny": true,
 
-      "module": "es6",
-      "target": "es5",
+      "module": "ESNext",  // или "module": "ES6"
+      "target": "ESNext", 
       "jsx": "react-jsx",
 
       "allowJs": true,

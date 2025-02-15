@@ -1,36 +1,25 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import Main from './MainPage/Main';
 import Welcome from './WelcomePage/Welcome';
-import { ToastContainer } from 'react-toastify';
-
-import { Pictures } from '../assets';
 
 import './App.css';
 import './AppPhone.css';
 import Modal from 'react-modal';
+import useTheme from '../hooks/useTheme';
 
 export const App = () => {
-
     Modal.setAppElement("#app-root");
-
-    const backgroundStyle = {
-        height: '100vh',
-        backgroundImage: `url(${Pictures["login-bg"]})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-      };
-
+    useTheme("black");
     return (
-    <div style={backgroundStyle}>
+    <>
         <BrowserRouter>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
             <Routes>
                 <Route path='' element={ <Main/> }/>
                 <Route path='welcome' element={ <Welcome/> }/>
             </Routes>
-            <ToastContainer/>
+        {/* <ToastContainer/> */}
         </BrowserRouter>
-    </div>
+    </>
     );
 };

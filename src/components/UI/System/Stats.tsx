@@ -3,7 +3,6 @@ import LoadingContainer from "../Functional/LoadingContainer";
 import showToast from "../../../libs/showToats";
 import { getItemLocalStorage } from '../../../libs/localStorageService';
 import { Stats } from '../../../libs/systemService';
-import WSService from '../../../libs/wsService';
 import { API, resolveApi } from "../../../libs/apiResolve";
 
 import './Stats.css';
@@ -18,22 +17,22 @@ const StatsTable: FC = () => {
 
     const [stats, setStats] = useState<Stats>({loading: true, data: null});
     
-    useEffect(() => {
+    // useEffect(() => {
 
-        const conn = new WSService(resolveApi(API.system.stats), {"DeskyJWT": getItemLocalStorage('token')})
-        conn.on('message', (data) => {
-            if (data && data.data) { 
-                setStats({ loading: false, data: JSON.parse(data.data) });
-            } else {
-                setStats({ loading: true, data: null });
-            }
-        });
+    //     const conn = new WSService(resolveApi(API.system.stats), {"DeskyJWT": getItemLocalStorage('token')})
+    //     conn.on('message', (data) => {
+    //         if (data && data.data) { 
+    //             setStats({ loading: false, data: JSON.parse(data.data) });
+    //         } else {
+    //             setStats({ loading: true, data: null });
+    //         }
+    //     });
     
-        conn.on('error', (err) => {
-            showToast(`WebSocket error: ${err.data || err}`);
-        });
+    //     conn.on('error', (err) => {
+    //         showToast(`WebSocket error: ${err.data || err}`);
+    //     });
     
-    }, []);
+    // }, []);
 
     if (stats.loading || stats.data === null) {
         return (

@@ -1,6 +1,6 @@
-import { ServiceMap } from '../../../libs/serviceMap';
+
 import ServiceCard from './ServiceCard';
-import useServiceContext from '../../../hooks/useServiceContext';
+import useServiceContext, { ServiceMap } from '../../../hooks/useServiceContext';
 import ExitButton from './ExitButton';
 import { FC } from 'react';
 
@@ -21,7 +21,6 @@ const ServiceNav: FC<ServiceNavProps> = ({ show }) => {
     return (
         <div className={`ServiceNav ${displayClass}`}>
             <h1 className='ServiceNav-logo'>Desky</h1>
-            <hr />
             {Array.from(ServiceMap.entries()).map(([key], i) => (
                 <ServiceCard
                     key={i}

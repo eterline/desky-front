@@ -52,14 +52,20 @@ export default (env: configEnv) => {
             rules: [
 
                 {
-                    test: /\.(jpg|svg)$/i,
-                    loader: 'file-loader',
-                    options: {
-                      name: 'assets/[name].[ext]',
-                      publicPath: '/assets',
+                    test: /\.svg$/,
+                    issuer: /\.[jt]sx?$/,
+                    use: ['@svgr/webpack'],
+                },
+        
+                // Handle SVGs as files (icons, images)
+                {
+                    test: /\.(png|jpe?g|gif|svg)$/i,
+                    type: 'asset/resource',
+                    generator: {
+                        filename: 'assets/[name].[hash].[ext]',
                     },
                 },
-                
+
             // TypeScript loader
                 {
                     test: /\.tsx?$/,
@@ -71,14 +77,14 @@ export default (env: configEnv) => {
                 {
                     test: /\.css$/i,
                     use: [
-                    MiniCssExtractPlugin.loader,
-                    {
-                        loader: "css-loader",
-                        options: {
-                        url: true, // Обрабатывает пути в CSS
-                        importLoaders: 1,
+                        MiniCssExtractPlugin.loader,
+                        {
+                            loader: "css-loader",
+                            options: {
+                                url: false,
+                                importLoaders: 1,
+                            },
                         },
-                    },
                     ],
                 },
 
@@ -90,16 +96,6 @@ export default (env: configEnv) => {
                         filename: 'static/font.[name].[ext]',
                     },
                 },
-
-            // Image content loader
-                // {
-                //     test: /\.(png|jpg|jpeg|gif)$/i,
-                //     type: 'asset/resource',
-                //     generator: {
-                //         filename: '[name].[ext]',
-                //     },
-                //     use
-                // },
             ],
           },
 

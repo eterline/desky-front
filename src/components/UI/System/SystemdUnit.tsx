@@ -1,43 +1,28 @@
 import { FC, useState } from "react";
-import { SystemdUnit, SystemdService, SystemdCmd } from "../../../libs/systemdService";
+import { DeskySystemdUnit } from "../../../lib/api/systemService";
 import './SystemdUnit.css'
 
-interface SystemdUnitProps {
-    unit: SystemdUnit
-    api: SystemdService
-    refetchFunc: () => void
-}
 
 
 
-const SystemdUnit: FC<SystemdUnitProps> = ({unit:{unit_file, state, preset}, api, refetchFunc}) => {
+
+const SystemdUnit: FC<DeskySystemdUnit> = (unit: DeskySystemdUnit) => {
 
     const [ inactive, setInactive ] = useState<boolean>(false);
-
-    const handleCommand = (cmd: SystemdCmd) => {
-        return () => {
-            api.execUnit(unit_file, cmd);
-            setInactive(true);
-            setTimeout( () => {
-                setInactive(false);
-                refetchFunc();
-            }, 5000);
-        }
-    }
 
     return (
         <div className={inactive ? 'SystemdUnit Block-inactive' : 'SystemdUnit'}>
             <div className="SystemdCalc-param">
-                <strong>Unit Name:</strong>{unit_file}
+                <strong>Unit Name:</strong>{unit.unit_file}
             </div>
             <div className="SystemdCalc-param">
-                <strong>Unit State:</strong>{state}
+                <strong>Unit State:</strong>{unit.state}
             </div>
             <div className="SystemdCalc-param">
-                <strong>Unit Preset:</strong>{preset}
+                <strong>Unit Preset:</strong>{unit.preset}
             </div>
 
-            <div 
+            {/* <div 
                 onClick={handleCommand('start')}
                 className="SystemdUnit-btn SystemdUnit-btn_start">
                 Start Service
@@ -53,7 +38,7 @@ const SystemdUnit: FC<SystemdUnitProps> = ({unit:{unit_file, state, preset}, api
                 onClick={handleCommand('restart')}
                 className="SystemdUnit-btn SystemdUnit-btn_restart">
                 Restart Service
-            </div>
+            </div> */}
         </div>
     );
 };

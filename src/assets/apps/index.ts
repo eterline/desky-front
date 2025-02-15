@@ -1,10 +1,10 @@
 const requireIcons = require.context('./', false, /\.svg$/);
 
-const AppsIcons: Record<string, string> = {};
+const IconMapApps: Record<string, string> = {};
 
 requireIcons.keys().forEach((fileName: string) => {
   const iconName = fileName.replace('./', '').replace('.svg', '');
-  AppsIcons[iconName] = fileName.replace('./', './assets/');
+  IconMapApps[iconName] = fileName.replace('./', './assets/');
 });
 
-export default AppsIcons;
+export default IconMapApps;

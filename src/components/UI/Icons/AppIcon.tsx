@@ -1,4 +1,4 @@
-import { AppsIcons } from "../../../assets";
+import { IconMapApps } from "../../../assets";
 import { FC } from 'react';
 
 interface AppIconProps {
@@ -8,10 +8,10 @@ interface AppIconProps {
 
 export const AppIcon: FC<AppIconProps> = ({name, size}) => {
 
-    const IconSrc = AppsIcons[name] ?? AppsIcons["default-app"];
+    const IconSrc = IconMapApps[name] ?? IconMapApps["default-app"];
     const targetSize = size ?? '100%'
 
-    return (<div style={{width: targetSize, height: targetSize}} className="mx-auto">
+    return (<div style={{width: targetSize, height: targetSize}} className="AppIcon">
         <img
             src={IconSrc} alt={name}
             style={{width: '100%', height: '100%'}} 

@@ -1,12 +1,9 @@
 .SystemdTable {
-    display: flex;
-    flex-direction: column;
-
     background-color: var(--body-bg-trans-50);
     border-radius: .5rem;
 
     height: 100%;
-    width: 100%;
+    width: 30%;
 }
 
 .SystemdTable hr {

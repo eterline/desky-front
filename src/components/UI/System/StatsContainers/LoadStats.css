@@ -10,7 +10,7 @@
     width: fit-content;
     height: fit-content;
 
-    background-color: var(--window-bg);
+    background-color: var(window-background);
 
     border-radius: .5rem;
     padding: .2rem;

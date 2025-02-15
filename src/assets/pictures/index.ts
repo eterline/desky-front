@@ -1,11 +1,11 @@
 const requireIcons = require.context('./', false, /\.jpg$/);
 
-const Pictures: Record<string, string> = {};
+const PictureMap: Record<string, string> = {};
 
 requireIcons.keys().forEach((fileName: string) => {
   const pictureName = fileName.replace('./', '').replace('.jpg', '');
   
-  Pictures[pictureName] = fileName.replace('./', './assets/');
+  PictureMap[pictureName] = fileName.replace('./', './assets/');
 });
 
-export default Pictures;
+export default PictureMap;

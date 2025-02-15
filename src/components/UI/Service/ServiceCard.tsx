@@ -10,14 +10,13 @@ interface ServiceCardProps {
 }
 
 const ServiceCard: FC<ServiceCardProps> = ({serviceName, iconName, onClick}) => {
-    return (
+    return (<>
         <div className="ServiceCard" onClick={onClick}>
-
             <AppIcon name={serviceName} size="60px"/>
             <div className="ServiceCard-name"> {serviceName} </div>
-
         </div>
-    );
+        <hr/>
+    </>);
 };
 
 export default ServiceCard;

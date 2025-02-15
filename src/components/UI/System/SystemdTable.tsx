@@ -1,24 +1,16 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import './SystemdTable.css'
-import { useFetchAPI } from "../../../hooks";
-import { API, resolveApi } from "../../../libs/apiResolve";
-import { SystemdService, SystemdUnitList } from "../../../libs/systemdService";
 import { ErrorMsg, LoadingContainer } from '../Functional';
-import SystemdCalc from "./SystemdCalc";
+import SystemdTableHead from "./SystemdTableHead";
 import SystemdUnit from "./SystemdUnit";
+import useFetchService from "../../../hooks/useFetchService";
+import { fetchSystemdUnits } from "../../../lib/api/systemService";
 
 
 
 const SystemdTable: FC = () => {
 
-    const [doRefetch, setDoRefetch] = useState<number>(0);
-    const { loading, error, data } = useFetchAPI<SystemdUnitList>(resolveApi(API.system.status), doRefetch)
-    const api = new SystemdService()
-
-
-    const refetchUnits = () => {
-        setDoRefetch(doRefetch+1)
-    }
+    const { loading, error, data } = useFetchService(fetchSystemdUnits)
 
 
     if (error) { return (
@@ -35,15 +27,11 @@ const SystemdTable: FC = () => {
 
     return (
         <div className="SystemdTable">
-            <h1 className="SystemdTable-title">Systemd</h1>
-            <SystemdCalc {...data} />
+            <h1 className="SystemdTable-title">Systemd Units</h1>
+            <SystemdTableHead {...data} />
             <hr />
             <div className="SystemdTable-main">
-                {
-                    data.map(function(data, idx) {
-                        return <SystemdUnit unit={data} api={api} refetchFunc={refetchUnits}  />
-                    })
-                }
+                {data.map((data, idx) => (<SystemdUnit {...data} key={idx} />))}
             </div>
         </div>
     );

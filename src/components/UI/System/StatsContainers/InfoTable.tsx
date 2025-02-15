@@ -1,5 +1,5 @@
-import { useFetchAPI } from "../../../../hooks";
-import { API, resolveApi } from "../../../../libs/apiResolve";
+import useFetchService from "../../../../hooks/useFetchService";
+import { fetchStats } from "../../../../lib/api/systemService";
 import { SecToHHMMSSString } from "../../../../libs/Utils";
 import TableLoad from "./TableLoad";
 
@@ -16,9 +16,7 @@ const InfoTable = () => {
 
     const parameters = new Map<string, string>
 
-    const { error, loading, data } = useFetchAPI<SystemInfoResponse>(
-        resolveApi(API.system.info)
-    );
+    const { error, loading, data } = useFetchService(fetchStats)
 
     if (!error && !loading && data) {
         parameters.set("Procs", data?.procs.toString() ?? 'unknown')

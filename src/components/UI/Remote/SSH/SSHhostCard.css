@@ -1,0 +1,107 @@
+.SSHhostCard {
+    display: flex;
+    flex-direction: column;
+
+    background-color: rgb(var(--window-element));
+    border-radius: 8px;
+
+    width: 100%;
+}
+
+.SSHhostCard-footer {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.SSHhostCard h2 {
+    background-color: rgb(var(--window-background));
+
+    margin-top: 0px;
+    padding: 10px;
+    border-radius: 8px 8px 0px 0px;
+
+
+    color: rgb(var(--text));
+}
+
+.SSHhostCard h3 {
+    width: fit-content;
+
+    margin: 0px;
+    border-radius: 4px;
+
+    color: var(--text);
+
+    margin-left: 10px;
+
+    & span {
+        background-color: black;
+        padding: 4px;
+        border-radius: 8px;
+        margin-right: .2rem;
+    }
+}
+
+.SSHhostCard h1 {
+    background-color: rgb(var(--window-background));
+    color: rgb(var(--text));
+
+    width: calc(100% - 4px);
+
+    margin: 0px;
+    padding: 2px;
+
+    overflow-x: hidden;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+
+    border-radius: 5px;
+}
+
+.SSHhostCard button {
+    margin-top: 10px;
+
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+
+    display: flex;
+    width: fit-content;
+    gap: 10px;
+
+
+    border-radius: 5px;
+}
+
+.SSHhostCard-ssh_button {
+
+    margin: 5px;
+    margin-left: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+    padding: 2px;
+
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 15px;
+
+    background-color: rgb(var(--window-background));
+    color: rgb(var(--text-invert));
+
+    gap: 5px;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+        transform: scale(105%);
+    }
+}

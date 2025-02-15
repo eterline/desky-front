@@ -1,5 +1,5 @@
-import AppsIcons from "./apps";
-import UiIcons from "./icons";
-import Pictures from "./pictures";
+import IconMapApps from "./apps";
+import IconMapUI from "./icons";
+import PictureMap from "./pictures";
 
-export { AppsIcons, UiIcons, Pictures };
+export { IconMapApps, IconMapUI, PictureMap };

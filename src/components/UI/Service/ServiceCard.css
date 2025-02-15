@@ -1,7 +1,9 @@
 .ServiceCard {
     height: fit-content;
 
-    background-color: var(--body-bg-trans-80);
+    background-color: rgb(var(--window-element));
+    color: var(rgb(var(--text-invert)));
+
     text-align: center;
     border-radius: .5rem;
 
@@ -9,18 +11,34 @@
     align-items: center;
     justify-content: center;
 
-    margin-top: 10px;
+    padding: 2px;
 
-    padding: .2rem;
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: .2rem;
+    padding-right: .2rem;
 
     cursor: pointer;
-}
 
-.ServiceCard-name {
-    text-align: center;
-    width: 100%;
+    transition: all .1s ease-in-out;
+
+    & .AppIcon {
+        background-color: rgb(var(--window-background));
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 10px;
+    }
+
+    & .ServiceCard-name {
+        text-align: center;
+        width: 100%;
+    }
+
+    &:hover {
+        box-shadow: 2px 2px rgb(var(--window-element));
+        transform: scale(105%);
+
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 @media (orientation: portrait) {

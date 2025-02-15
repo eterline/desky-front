@@ -1,0 +1,41 @@
+.AgentCard {
+    background-color: rgb(var(--window-element));
+    width: 100%;
+    border-radius: 5px;
+    padding: 3px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.AgentCard-head {
+    margin: 0px;
+}
+
+.AgentCard-head:nth-child(2) {
+    font-size: 80%;
+}
+
+.AgentCard-head_container {
+    background-color: rgb(var(--window-background));
+    color: rgb(var(--text));
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.AgentCard-main{
+    background-color: rgb(var(--window-background));
+    width: 100%;
+    min-height: 10px;
+
+    height: fit-content;
+
+    color: rgb(var(--text));
+
+    border-radius: 3px;
+}
+
+& .LoadingContainer {
+    padding: 10px;
+}

@@ -1,0 +1,37 @@
+.SSHhosts {
+    display: flex;
+    flex-direction: column;
+
+    width: calc(100% - 20px);
+    height: 100%;
+
+    padding: 10px;
+    gap: 10px;
+
+    overflow: scroll;
+}
+
+.SSHhosts-add {
+    display: flex;
+    background-color: rgb(var(--window-element));
+    width: 100%;
+    height: fit-content;
+
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10px;
+
+    border-radius: 25px;
+
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        filter: invert(1);
+        cursor: pointer;
+    }
+
+    &:hover::after {
+        content: "add ssh";
+    }
+}

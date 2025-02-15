@@ -1,0 +1,42 @@
+.TerminalShell {
+    display: block;
+    flex-grow: inherit;
+    height: fit-content;
+
+    border-radius: 10px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.Shell {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+}
+
+.Shell + hr {
+    margin: 0px;
+}
+
+.TerminalShell_title {
+    margin: 2px;
+    width: fit-content;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.terminal-input {
+    width: 100%;
+
+    padding: 10px;
+}
+
+.terminal-input input {
+    width: 100%;
+
+    padding: 4px;
+
+    border-radius: 4px;
+}

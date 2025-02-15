@@ -1,4 +1,4 @@
-import { ExecStates, PVEData } from "../libs/pveService";
+// import { ExecStates, PVEData } from "../libs/pveService";
 
 type SystemdCmd = "stop" | "start" | "restart"
 
@@ -18,7 +18,7 @@ export const API = {
       sessions: "pve/sessions",
       status: (session: number, host: string) => `pve/${session}/${host}/status`,
       devices: (session: number, host: string) => `pve/${session}/${host}/devices`,
-      exec: (data: PVEData, cmd: ExecStates) => `pve/${data.session}/${data.host}/devices/${data.vmid}/${cmd}`,
+      // exec: (data: PVEData, cmd: ExecStates) => `pve/${data.session}/${data.host}/devices/${data.vmid}/${cmd}`,
       disks: (session: number, host: string) => `pve/${session}/${host}/disks`
     },
 

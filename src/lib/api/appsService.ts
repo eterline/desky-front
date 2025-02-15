@@ -1,5 +1,5 @@
 import axios from "axios";
-import { joinApiRoute } from "./apiBaseService";
+import { joinApiRoute, PromiseResponse } from "./apiBaseService";
 
 // ===========================================================================
 
@@ -30,7 +30,7 @@ export interface APIResponse<DataType> {
 
 // ===========================================================================
 
-export const fetchTable = (): Promise<APIResponse<DeskyAppTable>> => {
+export const fetchTable = async (): PromiseResponse<DeskyAppTable> => {
     return axios
       .get<DeskyAppTable>(joinApiRoute(base, "table"))
       .then((response) => ({ Data: response.data, Code: response.status }))
@@ -40,7 +40,7 @@ export const fetchTable = (): Promise<APIResponse<DeskyAppTable>> => {
 };
 
 
-export const deleteAppByID = async (id: number): Promise<APIResponse<APIStatusOK>> => {
+export const deleteAppByID = async (id: number): PromiseResponse<APIStatusOK> => {
     try {
         const response = await axios.delete<APIStatusOK>(joinApiRoute(base, "table", id.toString(0)));
         return {Data: response.data, Code: response.status}
@@ -49,7 +49,7 @@ export const deleteAppByID = async (id: number): Promise<APIResponse<APIStatusOK
     } 
 }
 
-export const  deleteApp = async (topic: string, query: number): Promise<APIResponse<APIStatusOK>> => {
+export const deleteApp = async (topic: string, query: number): PromiseResponse<APIStatusOK> => {
     try {
         const response = await axios.delete<APIStatusOK>(joinApiRoute(base, "table", topic, query.toString(0)));
         return {Data: response.data, Code: response.status}
@@ -58,7 +58,7 @@ export const  deleteApp = async (topic: string, query: number): Promise<APIRespo
     } 
 }
 
-export const addApp = async (topic: string, app: DeskyAppCard): Promise<APIResponse<APIStatusOK>> => {
+export const addApp = async (topic: string, app: DeskyAppCard): PromiseResponse<APIStatusOK> => {
     try {
         const response = await axios.post<APIStatusOK>(joinApiRoute(base, "table", topic), app);
         return {Data: response.data, Code: response.status}
@@ -67,7 +67,7 @@ export const addApp = async (topic: string, app: DeskyAppCard): Promise<APIRespo
     } 
 }
 
-export const editApp = async (id: number, app: DeskyAppCard): Promise<APIResponse<APIStatusOK>> => {
+export const editApp = async (id: number, app: DeskyAppCard): PromiseResponse<APIStatusOK> => {
     try {
         const response = await axios.patch<APIStatusOK>(joinApiRoute(base, "table", id.toString(0)), app);
         return {Data: response.data, Code: response.status}

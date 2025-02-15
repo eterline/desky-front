@@ -1,5 +1,5 @@
 import axios from "axios";
-import { APIResponse, joinApiRoute } from "./apiBaseService";
+import { APIResponse, joinApiRoute, PromiseResponse } from "./apiBaseService";
 
 // ===========================================================================
 
@@ -24,7 +24,7 @@ export interface DeskySystemdUnit {
 
 // ===========================================================================
 
-export const fetchStats = (): Promise<APIResponse<DeskyHostStats>> => {
+export const fetchStats = async (): PromiseResponse<DeskyHostStats> => {
     return axios
       .get<DeskyHostStats>(joinApiRoute(base, "stats"))
       .then((response) => ({ Data: response.data, Code: response.status }))
@@ -33,7 +33,7 @@ export const fetchStats = (): Promise<APIResponse<DeskyHostStats>> => {
       });
 };
 
-export const fetchSystemdUnits = (): Promise<APIResponse<DeskySystemdUnit[]>> => {
+export const fetchSystemdUnits = async (): PromiseResponse<DeskySystemdUnit[]> => {
     return axios
       .get<DeskySystemdUnit[]>(joinApiRoute(base, "systemd"))
       .then((response) => ({ Data: response.data, Code: response.status }))

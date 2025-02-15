@@ -1,6 +1,6 @@
 import { ReactNode, FC } from "react";
 import "./SwitchButton.css"
-import { UiIcons } from "../../../assets";
+import { IconMapUI } from "../../../assets";
 
 interface SwitchButtonProps {
     content?: string
@@ -31,7 +31,7 @@ const SwitchButton: FC<SwitchButtonProps> = ({switcherFunc, content, width, heig
 
     return (<div className="SwitchButton" style={buttonStyle} onClick={switcherFunc}>
 
-        { showIcon ? ( <img src={UiIcons[content] ?? UiIcons["alert-circle"]} alt='button' />) : (content ?? 'button') }
+        { showIcon ? ( <img src={IconMapUI[content] ?? IconMapUI["alert-circle"]} alt='button' />) : (content ?? 'button') }
 
     </div>);
 

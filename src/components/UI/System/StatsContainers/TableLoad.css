@@ -56,7 +56,7 @@
     flex-direction: column;
     width: 100%;
 
-    background-color: var(--window-bg);
+    background-color: var(window-background);
 
     border-radius: 0 0 .5rem 0;
 }
@@ -92,7 +92,7 @@
     display: inline-block;
 
     background-color: var(--window-bg-trans-80);
-    color: var(--text-dark);
+    color: var(rgb(var(--text-invert)));
 
     border-radius: .2rem;
 }

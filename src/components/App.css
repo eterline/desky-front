@@ -1,20 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-body, html {
+body {
     margin: 0;
     padding: 0;
-}
+    width: 100%;
+    height: 100vh;
 
-:root {
-    box-sizing: border-box;
-}
+    display: inline-block;
 
-*,
-::before,
-::after {
-    box-sizing: inherit;
+    background-image: url('/api/background');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Fonts presets */
@@ -22,60 +17,35 @@ body, html {
 @font-face {
     font-family: 'JB-Bold';
     font-style: normal;
-    src:  url("../fonts/JetBrainsMono-Bold.woff2") format('woff2')
+    src:  url("../assets/JetBrainsMono-Bold.woff2") format('woff2')
 }
 
 
 body {
     font-family: 'JB-Bold', sans-serif;
-
     color: var(--text);
-
     font-size: 16px;
 }
 
 /* Color pallete ==================== */
 
 * {
+    
+    /* --light-color: rgb(180, 8, 180); */
 
-    /* Windows color */
-    --body-bg: rgb(0, 0, 0);
-    --window-bg: white;
-
-    --body-bg-trans-80: rgba(0, 0, 0, 0.8);
+    /* --body-bg-trans-80: rgba(0, 0, 0, 0.8);
     --body-bg-trans-50: rgba(0, 0, 0, 0.5);
     --body-bg-trans-30: rgba(0, 0, 0, 0.3);
 
     --window-bg-trans-80: rgba(255, 255, 255, 0.8);
     --window-bg-trans-50: rgba(255, 255, 255, 0.5);
-    --window-bg-trans-30: rgba(255, 255, 255, 0.3);
-    
-    /* Text vars */
-    --text: aliceblue;
-    --text-dark: rgb(0, 0, 0);
-    --text-smooth: rgb(130, 141, 148);
-    --text-error: rgb(156, 15, 15);
-    --text-accent: rgb(236, 165, 10);
-    --text-link: rgb(7, 102, 180);
+    --window-bg-trans-30: rgba(255, 255, 255, 0.3); */
 
-    /* Background colors */
-    --window-bg: rgb(226, 226, 226);
-    --window-bg-smooth: rgb(179, 179, 179);
 
     /* Decoration */
-    --window-shadow: rgba(255, 255, 255, 0.6);
+    /* --window-shadow: rgba(255, 255, 255, 0.6);
     --button-shadow-white: white;
-    --button-shadow-dark: black;
-
-    /* Bars and metrics color */
-    --bar-color1-min: purple;
-    --bar-color1-max: rgb(220, 0, 220);
-
-    --bar-color2-min: green;
-    --bar-color2-max: rgb(0, 220, 0);
-
-    --bar-color3-min: rgb(0, 125, 125);
-    --bar-color3-max: rgb(0, 220, 220);
+    --button-shadow-dark: black; */
 }
 
 /* Main ==================== */
@@ -87,13 +57,14 @@ body {
 
 .UsualService {
     width: 100%;
+    height: 100%;
     margin-bottom: 2rem;
 
-    animation-name: ServiceShow;
+    /* animation-name: ServiceShow;
     animation-duration: .4s;
     animation-direction: normal;
     animation-iteration-count: 1;
-    -o-animation-iteration-count: 1;
+    -o-animation-iteration-count: 1; */
 }
 
 @keyframes ServiceShow {
@@ -117,13 +88,6 @@ body {
   100%  {opacity: 1; margin-left: 0px}
 }
 
-.main-pad {
-    display: flex;
-
-    width: 100%;
-    height: 100%;
-}
-
 .main-pad_center {
     display: flex;
 
@@ -132,25 +96,6 @@ body {
 
     justify-content: center;
     align-items: center;
-}
-
-
-
-.main-pad-col {
-    display: flex;
-    flex-direction: column;
-    
-    width: 100%;
-    height: 100%;
-}
-
-.main-pad-col_center {
-    justify-content: center;
-    align-items: center;
-
-    display: flex;
-    flex-direction: column;
-    
 }
 
 .scroll-y {

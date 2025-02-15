@@ -1,4 +1,4 @@
-import { UiIcons } from "../../../assets";
+import { IconMapUI } from "../../../assets";
 import { FC } from 'react';
 import { NumberRange } from "../../../types/libs/utils";
 
@@ -11,7 +11,7 @@ interface AppIconProps {
 
 const UiIcon: FC<AppIconProps> = ({name, size, invert}) => {
 
-    const IconSrc = UiIcons[name] ?? UiIcons["alert-circle"];
+    const IconSrc = IconMapUI[name] ?? IconMapUI["alert-circle"];
     const targetSize = size ?? '2rem'
 
     return (<img className="UiIcon"

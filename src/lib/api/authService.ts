@@ -1,7 +1,7 @@
-// ===========================================================================
-
 import axios from "axios"
-import { APIResponse, APIStatusOK, joinApiRoute } from "./apiBaseService"
+import { APIResponse, APIStatusOK, joinApiRoute, PromiseResponse } from "./apiBaseService"
+
+// ===========================================================================
 
 const base = "auth"
 
@@ -16,7 +16,7 @@ export interface DeskyUserForm {
 
 // ===========================================================================
 
-export const fetchUserList = (): Promise<APIResponse<DeskyUserForm[]>> => {
+export const fetchUserList = (): PromiseResponse<DeskyUserForm[]> => {
     return axios
       .get<DeskyUserForm[]>(joinApiRoute(base, "users"))
       .then((response) => ({ Data: response.data, Code: response.status }))
@@ -34,7 +34,19 @@ export const fetchUserList = (): Promise<APIResponse<DeskyUserForm[]>> => {
 //       });
 // };
 
-export const fetchRegisterUser = (login: string, password: string): Promise<APIResponse<APIStatusOK>> => {
+
+// TODO: don't send body. rewrite later
+export const deleteUser = async (id: number): PromiseResponse<APIStatusOK> => {
+
+  return axios
+    .delete<APIStatusOK>(joinApiRoute(base, "users", id.toString()))
+    .then((response) => ({ Data: response.data, Code: response.status }))
+    .catch((err) => {
+      throw new Error("Register user error: " + err.message);
+    });
+};
+
+export const registerUser = async (login: string, password: string): PromiseResponse<APIStatusOK> => {
 
     const user: DeskyUserForm = {login, password}
 

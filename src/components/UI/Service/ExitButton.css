@@ -1,9 +1,16 @@
 .ExitButton {
-    margin-top: 2rem;
+    margin-top: auto;
+    margin-bottom: 10px;
     cursor: pointer;
 
     text-align: center;
-    padding: .2rem;
-    border-radius: .5rem;
-    background-color: var(--body-bg-trans-50);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(var(--window-element));
+    color: rgb(var(--text-invert));
+    transition: all .2s ease-in-out;
+
+    &:hover {
+        background-color: brown;
+    }
 }

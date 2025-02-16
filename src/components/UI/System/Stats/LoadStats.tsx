@@ -2,10 +2,10 @@ import { FC } from 'react';
 import { CircleBar } from '../../Functional';
 import { UiIcon } from '../../Icons';
 import './LoadStats.css';
-import { loadData } from '../../../../libs/systemService';
+import { Load } from '../../../../lib/api/systemService';
 
 interface LoadStatsProps {
-    data: loadData
+    data: Load
     cores: number
 }
 

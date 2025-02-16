@@ -4,15 +4,18 @@
     align-content: center;
     justify-content: center;
 
-    position: absolute;
-    bottom: .5rem;
-    left: .5rem;
-
-    background-color: var(--body-bg-trans-80);
+    background-color: rgb(var(--window-background), .8);
     transition: 0.2s ease-in-out transform;
     border-radius: .5rem;
 
     cursor: pointer;
+
+    width: fit-content;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 10px;
 }
 
 .AppAppend_inner {
@@ -27,6 +30,7 @@
 .AppAppend_text {
     display: none;
     margin-right: .2rem;
+    color: rgb(var(--text), .8);
 }
 
 .AppAppend:hover .AppAppend_text {

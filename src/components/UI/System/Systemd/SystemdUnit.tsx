@@ -1,10 +1,6 @@
 import { FC, useState } from "react";
-import { DeskySystemdUnit } from "../../../lib/api/systemService";
+import { DeskySystemdUnit } from "../../../../lib/api/systemService";
 import './SystemdUnit.css'
-
-
-
-
 
 const SystemdUnit: FC<DeskySystemdUnit> = (unit: DeskySystemdUnit) => {
 

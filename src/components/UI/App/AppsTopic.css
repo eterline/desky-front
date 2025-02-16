@@ -4,12 +4,29 @@
 
 .AppsTopic h1 {
     font-size: 1.3em;
-    color: var(--text);
-    background-color: var(body-background);
+    color: rgb(255,255,255);
+    background-color: rgb(0,0,0);
 
-    padding: 0.3em;
+    padding-top: 2px;
+    padding-bottom: 2px;
 
-    border-radius: 0.5rem;
+    & span {
+
+        gap: 5px;
+
+        display: flex;
+
+        color: rgb(0,0,0);
+        background-color: rgb(255,255,255);
+
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+
+        padding: 0.3em;
+        border-radius: 4px;
+        width: 30%;
+    }
 }
 
 .AppsTopicRow {
@@ -19,4 +36,7 @@
     gap: 1em;
 
     flex-wrap: wrap;
+
+    color: rgb(var(--text));
+    background-color: rgb(var(--window-background), .3);
 }

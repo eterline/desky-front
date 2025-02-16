@@ -1,16 +1,19 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import './SSHhosts.css'
 import { useFetchService } from '../../../../hooks';
 import { fetchSSHhostList, pingSSHhostList, SSHhostPing } from '../../../../lib/api/sshService';
 import { ErrorMsg, LoadingContainer } from '../../Functional';
 import SSHhostCard from './SSHhostCard';
 import usePingSSH from '../../../../hooks/usePingSSH';
-import { AppIcon } from '../../Icons';
+import { AppIcon, UiIcon } from '../../Icons';
+import { createPortal } from 'react-dom';
+import AppendSSH from './AppendSSH';
 
 const SSHhosts: FC = () => {
 
     const pingMap = usePingSSH();
     const {loading, error, data} = useFetchService(fetchSSHhostList)
+    const [isAppendOpen, setAppendOpen] = useState(false);
 
     if (error) { return <ErrorMsg text={error} type="notice" /> }
     if (loading) { return <LoadingContainer/> }
@@ -27,9 +30,13 @@ const SSHhosts: FC = () => {
                     />
                 )
             }
-            <div className='SSHhosts-add'>
-                + <AppIcon name='terminal' size='30px'/>
+            <div className='SSHhosts-add' onClick={() => setAppendOpen(true)}>
+                + <UiIcon name='terminal' size='30px'/>
             </div>
+            {
+                isAppendOpen && 
+                <AppendSSH onClose={() => setAppendOpen(false)}/>
+            }
         </div>
     );
 };

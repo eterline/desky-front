@@ -1,5 +1,5 @@
-import showToast from '../libs/showToats';
-import { setItemLocalStorage } from '../libs/localStorage';
+import showToast from '../lib/toastService';
+import { setItemLocalStorage } from '../lib/localStorage/localStorageService';
 
 interface LoginCredentials {
     password: string

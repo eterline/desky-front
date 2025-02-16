@@ -6,6 +6,12 @@
     border-radius: 8px;
 
     width: 100%;
+
+    transition: filter .2s ease-in-out;
+
+    &:hover {
+        filter: invert(1);
+    }
 }
 
 .SSHhostCard-footer {
@@ -94,7 +100,7 @@
     border-radius: 15px;
 
     background-color: rgb(var(--window-background));
-    color: rgb(var(--text-invert));
+    color: rgb(var(--text));
 
     gap: 5px;
     transition: all .2s ease-in-out;

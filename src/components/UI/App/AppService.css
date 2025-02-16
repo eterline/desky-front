@@ -1,1 +1,4 @@
-.AppService {}
+.AppService {
+    min-height: 50vh;
+    margin-bottom: 20px;
+}

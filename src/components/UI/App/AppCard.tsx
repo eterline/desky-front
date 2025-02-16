@@ -1,28 +1,22 @@
 import "./AppCard.css";
 import { FC } from "react";
 import { AppIcon, AppIconURL } from "../Icons";
-import { urlValidate, stringCutter, linkWindowHandle } from "../../../libs/Utils";
+import { urlValidate, stringCutter, linkWindowHandle } from "../../../lib/utils";
 import AppCardModal from "./AppCardModal";
-import AppService from "../../../libs/appService";
+import { DeskyAppCard } from "../../../lib/api/appsService";
 
-interface AppCardProps {
-    app:    AppCardInfo
-    topic:  string
-    query:  number
-    updateFunc?: () => void
-}
+const AppCard: FC<DeskyAppCard> = (app: DeskyAppCard) => {
 
-const AppCard: FC<AppCardProps> = ({app, topic, query, updateFunc}) => {
+    const {ok, text} = urlValidate(app.icon)
 
-    const Icon = urlValidate(app.icon) ? <AppIconURL url={app.icon}/> : <AppIcon name={app.icon}/>;
-    const API = new AppService()
+    const Icon = ok ? <AppIconURL url={text}/> : <AppIcon name={text}/>;
 
     return (
         <div className="AppCard" onClick={linkWindowHandle(app.link)}>
 
 
             <div onClick={(e) => e.stopPropagation()}>
-                <AppCardModal update={updateFunc} app={app} topic={topic} query={query} api={API} />
+                <AppCardModal {...app} />
             </div>
 
             <div className="AppCard-icon">

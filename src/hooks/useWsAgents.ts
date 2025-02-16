@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { fetchMonitor, wsAgentMonitor } from "../lib/api/agentService";
 import useFetchService from "./useFetchService";
 import { WsConnectorAPI } from "../lib/api/apiBaseService";
+import { getItemLocalStorage, setItemLocalStorage } from "../lib/localStorage/localStorageService";
 
 export type AgentMonitorStatsMap = Record<string, AgentStats>
 
@@ -77,7 +78,40 @@ interface Temperature {
     max:        number
 }
 
-const useWsAgentMonitor = () => {
+export const emptyAgentStats: AgentStats = {
+    cpu: {
+      name: "loading...",
+      model: "loading...",
+      "core-count": 0,
+      "thread-count": 0,
+      cores: [],
+      cache: 0,
+      load: 0
+    },
+    host: {
+      hostname: "loading...",
+      uptime: 0,
+      os: "loading...",
+      processes: 0,
+      hypervisor: "loading..."
+    },
+    load: {
+      "load-1": 0,
+      "load-5": 0,
+      "load-15": 0
+    },
+    partitions: [],
+    ports: [],
+    ram: {
+      total: 0,
+      used: 0,
+      available: 0,
+      use: 0
+    },
+    temperature: []
+};
+
+const useWsAgentMonitor = (stubbed?: boolean) => {
 
     const {loading, error, data} = useFetchService(fetchMonitor);
     const [agentStatsMap, setAgentStatsMap] = useState<AgentMonitorStatsMap>({});
@@ -86,14 +120,16 @@ const useWsAgentMonitor = () => {
     useEffect(() => {
         if (data?.length > 0 && !wsAgentsMonitorRef.current) {
 
-            const ws = wsAgentMonitor();
+            const ws = stubbed ? null : wsAgentMonitor();
             wsAgentsMonitorRef.current = ws;
-
+            if (!ws) return
+        
             ws.AddReaction(
                 'message', (e) => {
                     try {
                         const stats: AgentStatsMessage = JSON.parse(e.data);
                         if (stats && stats.data && stats.id) {
+                            setItemLocalStorage(stats.id, stats.data)
                             setAgentStatsMap( prev => (
                                 {...prev, [stats.id]: stats.data }
                             ));
@@ -103,6 +139,7 @@ const useWsAgentMonitor = () => {
                     }
                 }
             );
+           
     
           return () => { ws.CloseWS() };
         }

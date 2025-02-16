@@ -1,16 +1,16 @@
 import { FC } from "react";
 import './SystemdTable.css'
-import { ErrorMsg, LoadingContainer } from '../Functional';
+import { ErrorMsg, LoadingContainer } from './../../Functional';
 import SystemdTableHead from "./SystemdTableHead";
 import SystemdUnit from "./SystemdUnit";
-import useFetchService from "../../../hooks/useFetchService";
-import { fetchSystemdUnits } from "../../../lib/api/systemService";
+import useFetchService from "../../../../hooks/useFetchService";
+import { fetchSystemdUnits } from "../../../../lib/api/systemService";
 
 
 
 const SystemdTable: FC = () => {
 
-    const { loading, error, data } = useFetchService(fetchSystemdUnits)
+    const { loading, error, data } = useFetchService(fetchSystemdUnits, "systemd_units")
 
 
     if (error) { return (

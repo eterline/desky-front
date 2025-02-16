@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { tempData } from "../../../../libs/systemService";
+import { Temperature } from "../../../../lib/api/systemService";
 import TableLoad from "./TableLoad";
 
-const TempStats: FC<tempData> = (data) => {
+const TempStats: FC<Temperature[]> = (data) => {
 
     const parameters = new Map<string, string>();
 
@@ -21,6 +21,8 @@ const TempStats: FC<tempData> = (data) => {
             titleUpper={true}
             params={parameters}
             icon="temperature"
+            disableBar
+            centText
         />
         </>
     );

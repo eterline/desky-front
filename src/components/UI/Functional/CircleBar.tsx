@@ -9,6 +9,7 @@ interface CircleBarProps {
     emptyColor?: string;
     centerText?: string;
     textColor?: string;
+    textSize?: string;
 }
 
 const CircleBar: React.FC<CircleBarProps> = ({
@@ -19,7 +20,8 @@ const CircleBar: React.FC<CircleBarProps> = ({
     emptyColor,
     centerText,
     max,
-    textColor
+    textColor,
+    textSize
 }) => {
     const radius = (size - strokeWidth) / 2;
     const circumference = 2 * Math.PI * radius;
@@ -55,7 +57,7 @@ const CircleBar: React.FC<CircleBarProps> = ({
                 y="50%"
                 textAnchor="middle"
                 dy=".3em"
-                fontSize="20"
+                fontSize={textSize ?? "20"}
                 fontWeight="bold"
                 fill={textColor ?? 'white'}
                 color={textColor ?? 'white'}

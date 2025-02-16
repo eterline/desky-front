@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
-import loginService from '../../libs/loginService';
-import useAuthorized from '../../hooks/useAuthorized';
+import loginService from '../../lib/loginService';
 
 import "./Welcome.css";
-import showToast from "../../libs/showToats";
+import showToast from "../../lib/toastService";
 
 const Welcome = () => {
     const [username, setUsername] = useState<string>('');
@@ -19,7 +18,7 @@ const Welcome = () => {
         });
     }
 
-    const isAuth = useAuthorized(false)
+    const isAuth = false
     if (isAuth) {
         return <Navigate to="/" />;
     }

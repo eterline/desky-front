@@ -1,0 +1,20 @@
+.Stats {
+    display: flex;
+    flex-direction: column;
+
+    width: calc(100% - 30px);
+    margin: 10px;
+
+    background-color: rgb(var(--window-element), .6);
+    border-radius: .5rem;
+
+    padding: 5px;
+}
+
+@media (orientation: portrait) {
+    .Stats {
+        display: none;
+        width: 100%;
+        font-size: .8rem;
+    }
+}

@@ -19,3 +19,12 @@ export const fetchTheme = async (): PromiseResponse<DeskyThemeMap> => {
         throw new Error("Fetch theme failed: " + err.message);
       });
 };
+
+export const setupBackground = () => {
+  document.body.setAttribute("style", `
+    background-image: url('/api/background');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  `);
+}

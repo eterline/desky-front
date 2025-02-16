@@ -1,41 +1,204 @@
 .AgentCard {
     background-color: rgb(var(--window-element));
-    width: 100%;
+    width: calc(100% - 6px);
     border-radius: 5px;
     padding: 3px;
 
     display: flex;
     flex-direction: column;
     gap: 5px;
+
+    transition: transform .2s ease-in-out;
+
+    &:hover{
+        transform: scale(1.01);
+    }
 }
 
 .AgentCard-head {
     margin: 0px;
+    padding: 2px;
 }
 
-.AgentCard-head:nth-child(2) {
+.AgentCard-data-bar {
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    background-color: rgb(var(--window-element));
+    border-radius: 4px;
+
+    & span {
+        border-bottom: 3px inset rgb(var(--window-background));
+        width: 100%;
+        text-align: center;
+        color: rgb(var(--text-invert));
+    }
+}
+
+.AgentCard-head:nth-child(1) {
     font-size: 80%;
+    padding: 2px;
+    border-radius: 4px;
 }
 
 .AgentCard-head_container {
-    background-color: rgb(var(--window-background));
     color: rgb(var(--text));
-    padding: 3px;
-    border-radius: 5px;
+    padding: 5px;
+    border-bottom: 3px inset rgb(var(--window-background));
+    border-top: 3px inset rgb(var(--window-background));
 }
 
-.AgentCard-main{
+
+.AgentCard-bars {
+    width: fit-content;
+}
+
+.AgentCard-data {
+    display: grid;
+
+    grid-template-columns: repeat(2, fit-content(120px)) repeat(3, 1fr);
+
+    gap: 10px;
+
+    padding: 5px;
+
     background-color: rgb(var(--window-background));
+    border-radius: 4px;
+    
+    & .AgentCard-data-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-grow: inherit;
+        background-color: rgb(var(--window-element));
+        color: rgb(var(--text-invert));
+
+
+        justify-content: flex-start;
+
+        font-size: 1rem;
+        text-align: center;
+
+        border-radius: 4px;
+
+        & span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+
+            margin: 5px;
+            padding: 4px;
+            border-radius: 3px;
+
+            background-color: rgb(var(--window-background));
+            width: calc(100% - 20px);
+
+            color: rgb(var(--text));
+        }
+
+        & p {
+            font-weight: 800;
+            padding: 4px;
+        }
+    }
+}
+
+.AgentCard-details {
+    cursor: pointer;
+    user-select: none;
+}
+
+.AgentCard-details summary {
+    padding: 2px;
+    background-color: rgb(var(--window-background));
+
+    display: flex;
+    gap: .2rem;
+
+    & span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 2px;
+
+        background-color: rgb(var(--window-element));;
+        border-radius: 4px;
+        padding: 4px;
+        color: rgb(var(--text-invert));
+    }
+}
+
+.AgentCard-details[open] summary ~ .AgentCard-details-data {
+    animation: expand 0.4s ease-out forwards;
+}
+
+.AgentCard-details[open] summary {
+    & span {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.AgentCard-details-data {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
     width: 100%;
-    min-height: 10px;
-
-    height: fit-content;
-
-    color: rgb(var(--text));
-
-    border-radius: 3px;
 }
 
-& .LoadingContainer {
-    padding: 10px;
+.AgentCard-details-item {
+    background-color: rgb(var(--window-background));
+    border-radius: 0px 0px 4px 4px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 3px;
+
+    &:nth-child(2) div {
+        display: grid;
+        grid-template-columns: 60% 40%;
+    }
+
+    & div {
+        display: grid;
+        grid-template-columns: 30% 70%;
+
+        background-color: rgb(var(--window-element));
+        border-radius: 3px;
+        padding: 2px;
+    }
+
+    & div span {
+        background-color: rgb(var(--window-background));
+        color: rgb(var(--text));
+        padding: 2px;
+        border-radius: 4px;
+
+        text-align: center;
+    }
+
+    & div p {
+        text-align: center;
+        margin: 2px;
+    }
+}
+
+
+@keyframes expand {
+    from {
+        max-height: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 500px; /* Достаточно большое значение */
+        opacity: 1;
+    }
 }

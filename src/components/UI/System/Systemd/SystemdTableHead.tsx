@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import { SystemdUnitList } from '../../../libs/systemdService';
+import { DeskySystemdUnit } from '../../../../lib/api/systemService';
 import './SystemdTableHead.css'
 
 interface UnitsStates {
@@ -9,32 +9,32 @@ interface UnitsStates {
     unknown:    number
 }
 
-const SystemdTableHead: FC<SystemdUnitList> = (units) => {
+const SystemdTableHead: FC<DeskySystemdUnit[]> = (units) => {
 
     const [states, setStates] = useState<UnitsStates>({all: 0, disabled: 0, enabled: 0, unknown: 0});
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        setStates({
-            all: Object.entries(units).length,
+    //     setStates({
+    //         all: Object.entries(units).length,
 
-            disabled: Object.entries(units).map(([_ , data]) => {
-                return data.preset === 'disabled'
-            })
-            .filter(v => v).length,
+    //         disabled: Object.entries(units).map(([_ , data]) => {
+    //             return data?.preset === 'disabled'
+    //         })
+    //         .filter(v => v).length,
 
-            enabled: Object.entries(units).map(([_ , data]) => {
-                return data.preset === 'enabled'
-            })
-            .filter(v => v).length,
+    //         enabled: Object.entries(units).map(([_ , data]) => {
+    //             return data?.preset === 'enabled'
+    //         })
+    //         .filter(v => v).length,
 
-            unknown: Object.entries(units).map(([_ , data]) => {
-                return data.preset === ''
-            })
-            .filter(v => v).length
-        })
+    //         unknown: Object.entries(units).map(([_ , data]) => {
+    //             return data?.preset === ''
+    //         })
+    //         .filter(v => v).length
+    //     })
 
-    }, [units])
+    // }, [units])
 
     return (
         <div className='SystemdTableHead'>

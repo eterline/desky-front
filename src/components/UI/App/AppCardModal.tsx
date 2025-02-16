@@ -2,29 +2,17 @@ import { FC, useState } from 'react';
 import './AppCardModal.css';
 import { ModalWindow } from '../Functional';
 import { AppIcon, UiIcon } from '../Icons';
-import AppService from '../../../libs/appService';
+import { deleteAppByID, DeskyAppCard } from '../../../lib/api/appsService';
 
-interface AppCardModalProps {
-    app:    AppCardInfo
-    topic:  string
-    query:  number
-    update: () => void
-    api:    AppService
-}
-
-const AppCardModal: FC<AppCardModalProps> = ({app, topic, query, api, update}) => {
+const AppCardModal: FC<DeskyAppCard> = (app: DeskyAppCard) => {
 
     const [show, setShow] = useState<boolean>(false);
 
+    console.log(app.id)
+
     const openModal = () => {setShow(true)}
     const closeModal = () => { setTimeout(() => setShow(false), 50)}
-
-    const deleteHandle = () => {
-        api.delete(topic, query);
-
-        setTimeout( () => closeModal(), 500);
-        setTimeout( () => update(), 2000);
-    }
+    const deleteHandle = () => {deleteAppByID(app.id)}
 
     return (
         <div className="AppCardModal" onClick={openModal}>

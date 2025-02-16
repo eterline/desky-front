@@ -1,8 +1,7 @@
-import { Navigate } from "react-router-dom";
-import { useAuthorized, useElementSwitch } from '../../hooks';
+import { useElementSwitch } from '../../hooks';
 import { ServiceNav, ServiceView, ServiceProvider } from '../UI/Service';
 import { FC, useEffect } from 'react';
-import showToast from '../../libs/showToats';
+import showToast from '../../lib/toastService';
 
 const Main: FC = () => {
 

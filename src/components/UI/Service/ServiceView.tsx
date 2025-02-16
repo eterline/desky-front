@@ -8,7 +8,7 @@ import { ErrorMsg } from '../Functional';
 const ServiceView = () => {
 
     const { selectedService } = useServiceContext();
-    const ServiceComponent = SelectService(selectedService);
+    const ServiceComponent = SelectService(selectedService).component;
 
     usePageName(selectedService);
 

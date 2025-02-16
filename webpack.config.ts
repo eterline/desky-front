@@ -62,7 +62,7 @@ export default (env: configEnv) => {
                     test: /\.(png|jpe?g|gif|svg)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: 'assets/[name].[hash].[ext]',
+                        filename: 'assets/[name][ext]',
                     },
                 },
 
@@ -81,7 +81,7 @@ export default (env: configEnv) => {
                         {
                             loader: "css-loader",
                             options: {
-                                url: false,
+                                url: true,
                                 importLoaders: 1,
                             },
                         },

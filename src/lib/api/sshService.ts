@@ -20,13 +20,11 @@ export interface SSHhostPing {
 
 export interface SSHhostForm {
     os:                 string
-
     port:               number
     host:               string
     user:               string
-
     "private-key-use":  boolean
-    password:           number
+    password:           string
     "private-key":      string
 }
 

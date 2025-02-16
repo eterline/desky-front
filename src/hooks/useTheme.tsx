@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { DeskyTheme, fetchTheme } from "../lib/api/settingsService";
+import { DeskyTheme, fetchTheme, setupBackground } from "../lib/api/settingsService";
 import useFetchService from "./useFetchService";
-import { getItemLocalStorage, setItemLocalStorage } from "../libs/localStorage";
+import { getItemLocalStorage, setItemLocalStorage } from "../lib/localStorage/localStorageService";
 
 export type DeskyThemeParam  = DeskyTheme;
 
@@ -25,14 +25,17 @@ const useTheme = (name: string) => {
     }, [name, data]);
 
     useEffect(() => {
+
+        setupBackground();
         const savedTheme = exportTheme(name);
+
         if (savedTheme) {
             Object.entries(savedTheme).forEach(([key, value]) => {
                 document.documentElement.style.setProperty(`--${key}`, value);
-                console.log(`--${key}`, value)
             });
         }
-    }, [name]);
+
+    }, [name, data]);
     
 };
 

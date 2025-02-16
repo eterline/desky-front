@@ -1,11 +1,12 @@
 import useWsAgentMonitor from '../../../../hooks/useWsAgents';
+import { getItemLocalStorage } from '../../../../lib/localStorage/localStorageService';
 import { ErrorMsg, LoadingContainer } from '../../Functional';
 import AgentCard from './AgentCard';
 import './Agents.css'
 
 const Agents = () => {
 
-    const {data, agentStatsMap, error, loading} = useWsAgentMonitor();
+    const {data, agentStatsMap, error, loading} = useWsAgentMonitor(false);
 
     if (error) { 
         return (<ErrorMsg text={error} type="alert" />)

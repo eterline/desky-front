@@ -5,6 +5,8 @@
     flex-direction: column;
 
     width: calc(100% - 20px);
-    height: 100%;
+    height: fit-content;
     padding: 10px;
+
+    gap: 10px;
 }

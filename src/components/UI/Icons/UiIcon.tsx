@@ -1,6 +1,5 @@
 import { IconMapUI } from "../../../assets";
 import { FC } from 'react';
-import { NumberRange } from "../../../types/libs/utils";
 
 interface AppIconProps {
     name:       string;

@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { memoryData } from "../../../../libs/systemService";
+import { Memory } from "../../../../lib/api/systemService";
 import TableLoad from "./TableLoad";
-import { bytesToGB } from "../../../../libs/Utils";
+import { bytesToGB } from "../../../../lib/utils";
 
-const RamStats: FC<memoryData> = ({total, used, available, use}) => {
+const RamStats: FC<Memory> = ({total, used, available, use}) => {
 
     const parameters = new Map<string, string>([
         ["Total", bytesToGB(total, 2)],
@@ -18,6 +18,7 @@ const RamStats: FC<memoryData> = ({total, used, available, use}) => {
                 titleUpper={true}
                 params={parameters}
                 icon="ram"
+                centText
             />
         </>
     );

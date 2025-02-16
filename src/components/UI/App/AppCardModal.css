@@ -6,8 +6,6 @@
 }
 
 .AppCardModal-main {
-    max-width: 500px;
-    width: 100%;
 }
 
 .AppCardModal-main-icon {
@@ -22,8 +20,6 @@
     text-align: center;
 
     margin: 0;
-
-    width: 100%;
 }
 
 .AppCardModal-main strong {

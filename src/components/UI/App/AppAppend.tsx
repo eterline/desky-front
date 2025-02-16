@@ -1,18 +1,16 @@
 import { FC, useState } from 'react';
 import { UiIcon } from '../Icons';
 import './AppAppend.css';
-import Modal from 'react-modal';
 import { ModalWindow } from '../Functional';
-import AppService from '../../../libs/appService';
+import { addApp } from '../../../lib/api/appsService';
 
 interface AppAppendProps {
     icon?: string
     size?: string
     text?: string
-    updateFunc: () => void
 }
 
-const AppAppend: FC<AppAppendProps> = ({icon, size, text, updateFunc}) => {
+const AppAppend: FC<AppAppendProps> = ({icon, size, text}) => {
 
     const [appTopic, setAppTopic] = useState<string>('');
     const [appName, setAppName] = useState<string>('');
@@ -20,20 +18,17 @@ const AppAppend: FC<AppAppendProps> = ({icon, size, text, updateFunc}) => {
     const [appLink, setAppLink] = useState<string>('');
     const [appIcon, setAppIcon] = useState<string>('');
 
-    const api = new AppService()
-
     const [modalIsOpen, setModalIsOpen] = useState(false);
 
     const handleReq = () => {
         if (appName === '') {return}
-        api.add(appTopic, {
+        addApp(appTopic, {
             name: appName,
             description: appDescription,
             link: appLink,
             icon: appIcon
         })
-
-        setTimeout(updateFunc, 1500)
+        // setTimeout(updateFunc, 1500)
     }
 
     const openModal = () => {
@@ -63,16 +58,16 @@ const AppAppend: FC<AppAppendProps> = ({icon, size, text, updateFunc}) => {
                     <p>main</p>
                     <label>
                         Topic:           
-                        <input placeholder="Serving" value={appTopic} onChange={(e) => setAppTopic(e.target.value)} />
+                        <input minLength={6} placeholder="Serving" value={appTopic} onChange={(e) => setAppTopic(e.target.value)} />
                     </label>
                     <label>
                         App Name:           
-                        <input placeholder="Docker" value={appName} onChange={(e) => setAppName(e.target.value)} />
+                        <input minLength={3} placeholder="Docker" value={appName} onChange={(e) => setAppName(e.target.value)} />
                     </label>
                     <p>info</p>
                     <label>
                         Description:        
-                        <input placeholder="Container engine" value={appDescription} onChange={(e) => setAppDescription(e.target.value)} />
+                        <input minLength={4} placeholder="Container engine" value={appDescription} onChange={(e) => setAppDescription(e.target.value)} />
                     </label>
                     <label>
                         Link:               
@@ -80,7 +75,7 @@ const AppAppend: FC<AppAppendProps> = ({icon, size, text, updateFunc}) => {
                     </label>
                     <label>
                         Icon (Name/URL):    
-                        <input placeholder="docker" value={appIcon} onChange={(e) => setAppIcon(e.target.value)} />
+                        <input minLength={2} placeholder="docker" value={appIcon} onChange={(e) => setAppIcon(e.target.value)} />
                     </label>
                 </div>}
             />

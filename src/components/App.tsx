@@ -9,7 +9,7 @@ import useTheme from '../hooks/useTheme';
 
 export const App = () => {
     Modal.setAppElement("#app-root");
-    useTheme("black");
+    useTheme("white");
     return (
     <>
         <BrowserRouter>

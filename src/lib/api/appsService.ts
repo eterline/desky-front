@@ -10,7 +10,7 @@ const base = "apps"
 export type DeskyAppTable = Map<string, DeskyAppCard[]>;
 
 export interface DeskyAppCard {
-    id:             number | undefined
+    id?:             number | undefined
     icon:           string
     name:           string
     link:           string
@@ -40,9 +40,10 @@ export const fetchTable = async (): PromiseResponse<DeskyAppTable> => {
 };
 
 
-export const deleteAppByID = async (id: number): PromiseResponse<APIStatusOK> => {
+export const deleteAppByID = async (id: any): PromiseResponse<APIStatusOK> => {
+    const appid = parseInt(id, 10);
     try {
-        const response = await axios.delete<APIStatusOK>(joinApiRoute(base, "table", id.toString(0)));
+        const response = await axios.delete<APIStatusOK>(joinApiRoute(base, "table", appid.toString()));
         return {Data: response.data, Code: response.status}
     } catch(err) {
         throw new Error('Delete app error: ' + err.message);
@@ -51,7 +52,7 @@ export const deleteAppByID = async (id: number): PromiseResponse<APIStatusOK> =>
 
 export const deleteApp = async (topic: string, query: number): PromiseResponse<APIStatusOK> => {
     try {
-        const response = await axios.delete<APIStatusOK>(joinApiRoute(base, "table", topic, query.toString(0)));
+        const response = await axios.delete<APIStatusOK>(joinApiRoute(base, "table", topic, query.toString()));
         return {Data: response.data, Code: response.status}
     } catch(err) {
         throw new Error('Delete app error: ' + err.message);

@@ -3,15 +3,18 @@ import AppService from '../components/UI/App/AppService';
 import SystemService from '../components/UI/System/SystemService';
 import RemoteService from '../components/UI/Remote/RemoteService';
 
-export type ServiceMapPattern  = Map<string, FC>
+export interface ServiceObj {
+    component:  FC
+    icon:       string
+}
 
-export const ServiceMap: ServiceMapPattern = new Map([
-    ['services',    AppService],
-    ['system',      SystemService],
-    ['remote',      RemoteService],
+export const ServiceMap: Map<string, ServiceObj> = new Map([
+    ['services',    { component: AppService, icon: "services" }],
+    ['system',      { component: SystemService, icon: "adjustments" }],
+    ['remote',      { component: RemoteService, icon: "terminal" }],
 ]);
 
-export const SelectService = (service: string): FC => {
+export const SelectService = (service: string): ServiceObj => {
     return ServiceMap.get(service)
 }
 

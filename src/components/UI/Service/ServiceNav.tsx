@@ -21,15 +21,15 @@ const ServiceNav: FC<ServiceNavProps> = ({ show }) => {
     return (
         <div className={`ServiceNav ${displayClass}`}>
             <h1 className='ServiceNav-logo'>Desky</h1>
-            {Array.from(ServiceMap.entries()).map(([key], i) => (
+            {Array.from(ServiceMap.entries()).map(([key, obj], i) => (
                 <ServiceCard
                     key={i}
-                    serviceName={key} iconName={key}
+                    serviceName={key} iconName={obj.icon}
                     onClick={ () => { setSelectedService(key) } }
                 />
             ))}
 
-            <ExitButton />
+            {/* <ExitButton /> */}
         </div>
     );
 };

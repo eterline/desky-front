@@ -4,6 +4,7 @@ import './AppService.css';
 import { ErrorMsg, LoadingContainer } from '../Functional';
 import useFetchService from '../../../hooks/useFetchService';
 import { fetchTable } from '../../../lib/api/appsService';
+import AppAppend from './AppAppend';
 
 const AppService: FC = () => {
 
@@ -13,12 +14,14 @@ const AppService: FC = () => {
     if (loading) { return <LoadingContainer/> }
 
     return (
-        <div className="AppService UsualService">
+        <div className="AppService">
                 { 
                     Object.entries(data).map(([topicName, appList], i) => (
                         <AppsTopic key={i} topic={topicName} apps={appList}/>
                     )) 
                 }
+
+                <AppAppend />
         </div>
     );
 };

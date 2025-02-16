@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { cpuData } from "../../../../libs/systemService";
+import { Cpu } from "../../../../lib/api/systemService";
 import TableLoad from "./TableLoad";
 
-const CpuStats: FC<cpuData> = ({load, name, model, coreCount, threadCount}) => {
+const CpuStats: FC<Cpu> = ({load, name, model, coreCount, threadCount}) => {
 
     const parameters = new Map<string, string>([
         ["Name", name],
@@ -18,6 +18,7 @@ const CpuStats: FC<cpuData> = ({load, name, model, coreCount, threadCount}) => {
                 titleUpper={true}
                 params={parameters}
                 icon="cpu-64"
+                centText
             />
         </>
     );

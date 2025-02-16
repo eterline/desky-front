@@ -1,5 +1,5 @@
 import './ExitButton.css';
-import loginService from '../../../libs/loginService';
+import loginService from '../../../lib/loginService';
 import { FC } from 'react';
 
 const ExitButton: FC = () => {

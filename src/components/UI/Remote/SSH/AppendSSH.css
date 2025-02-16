@@ -1,0 +1,52 @@
+.AppendSSH_content {
+    background-color: rgb(var(--window-element));
+}
+
+.AppendSSH_content .FormGroup {
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+    font-size: 1rem;
+
+    & input {
+        border-radius: 8px;
+        margin: 5px;
+        padding: 4px;
+
+        font-size: 1rem;
+    }
+}
+
+.AppendSSH_content .ButtonGroup {
+    display: flex;
+    gap: 10px;
+
+    border: none;
+
+    & button {
+        display: flex;
+        padding: 10px;
+
+        &:hover {
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            background-color: green;
+        }
+    }
+}
+
+.FormGroup_check {
+    width: fit-content;
+    margin-left: auto;
+    background-color: aqua;
+}
+
+.AppendSSH-close {
+    user-select: none;
+    cursor: pointer;
+
+    &:hover {
+        color: red;
+    }
+}

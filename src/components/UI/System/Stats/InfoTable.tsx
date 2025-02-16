@@ -1,6 +1,6 @@
 import useFetchService from "../../../../hooks/useFetchService";
 import { fetchStats } from "../../../../lib/api/systemService";
-import { SecToHHMMSSString } from "../../../../libs/Utils";
+import { SecToHHMMSS } from "../../../../lib/utils";
 import TableLoad from "./TableLoad";
 
 export interface SystemInfoResponse {
@@ -20,7 +20,7 @@ const InfoTable = () => {
 
     if (!error && !loading && data) {
         parameters.set("Procs", data?.procs.toString() ?? 'unknown')
-        parameters.set("Uptime", SecToHHMMSSString(data?.uptime ?? 0))
+        parameters.set("Uptime", SecToHHMMSS(data?.uptime ?? 0))
         parameters.set("Virt", data?.virt ?? 'unknown')
     }
 
@@ -31,6 +31,7 @@ const InfoTable = () => {
                 titleUpper={true}
                 params={parameters}
                 disableBar={true}
+                centText
             />
         </>
     );

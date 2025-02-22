@@ -24,12 +24,23 @@
 .SSHhostCard h2 {
     background-color: rgb(var(--window-background));
 
+    display: flex;
+
     margin-top: 0px;
     padding: 10px;
     border-radius: 8px 8px 0px 0px;
 
 
     color: rgb(var(--text));
+
+    & div {
+        margin-left: auto;
+        transition: .2 transform ease-in-out;
+    }
+
+    & div:hover {
+        transform: scale(110%);
+    }
 }
 
 .SSHhostCard h3 {
@@ -55,15 +66,12 @@
     color: rgb(var(--text));
 
     width: calc(100% - 4px);
-
-    margin: 0px;
-    padding: 2px;
-
     overflow-x: hidden;
 
     margin-top: 5px;
     margin-bottom: 5px;
-
+    margin: 0px;
+    padding: 2px;
 
     border-radius: 5px;
 }

@@ -1,85 +1,111 @@
 import { FC, useState } from 'react';
-import { UiIcon } from '../Icons';
 import './AppAppend.css';
-import { ModalWindow } from '../Functional';
 import { addApp } from '../../../lib/api/appsService';
 
-interface AppAppendProps {
-    icon?: string
-    size?: string
-    text?: string
+export interface AppAppendForm {
+    appTopic:       string
+    name:           string
+    description:    string
+    link:           string
+    icon:           string
 }
 
-const AppAppend: FC<AppAppendProps> = ({icon, size, text}) => {
+export interface AppAppendProps {
+    onClose?: () => void
+}
 
-    const [appTopic, setAppTopic] = useState<string>('');
-    const [appName, setAppName] = useState<string>('');
-    const [appDescription, setAppDescription] = useState<string>('');
-    const [appLink, setAppLink] = useState<string>('');
-    const [appIcon, setAppIcon] = useState<string>('');
+const AppAppend: FC<AppAppendProps> = ({onClose}) => {
 
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [form, setForm] = useState<AppAppendForm>({
+        appTopic: "", name: "",
+        description: "",
+        link: "", icon: ""
+    });
 
-    const handleReq = () => {
-        if (appName === '') {return}
-        addApp(appTopic, {
-            name: appName,
-            description: appDescription,
-            link: appLink,
-            icon: appIcon
-        })
-        // setTimeout(updateFunc, 1500)
-    }
-
-    const openModal = () => {
-        setModalIsOpen(true);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setForm((prev) => ({...prev, [name]: value }));
     };
 
-    const closeModal = () => {
-        setTimeout(() => {setModalIsOpen(false)}, 50)
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        addApp(form.appTopic, {
+            name:           form.name,
+            description:    form.description,
+            link:           form.link,
+            icon:           form.icon
+        })
     };
 
     return (
-        <div className='AppAppend' onClick={openModal}>
-            <div className='AppAppend_inner'>
-                <UiIcon name= {icon ?? 'apps'} size= {size ?? '3rem'} />
-            </div>
-            <div className='AppAppend_text'>{text ?? 'Append App'}</div>
+            <form onSubmit={handleSubmit} className='AppAppend'>
+                    <h2>Add application</h2>
 
-            <ModalWindow 
-                opened={modalIsOpen}
-                eventClose={closeModal}
-                closerFunc={closeModal}
-                doFunc={handleReq}
-                title='Append App'
-                buttonText='ADD APP'
-                innerContent={
-                <div className="AppAppend-main">
-                    <p>main</p>
-                    <label>
-                        Topic:           
-                        <input minLength={6} placeholder="Serving" value={appTopic} onChange={(e) => setAppTopic(e.target.value)} />
-                    </label>
-                    <label>
-                        App Name:           
-                        <input minLength={3} placeholder="Docker" value={appName} onChange={(e) => setAppName(e.target.value)} />
-                    </label>
-                    <p>info</p>
-                    <label>
-                        Description:        
-                        <input minLength={4} placeholder="Container engine" value={appDescription} onChange={(e) => setAppDescription(e.target.value)} />
-                    </label>
-                    <label>
-                        Link:               
-                        <input placeholder="http://docker.lan" value={appLink} onChange={(e) => setAppLink(e.target.value)} />
-                    </label>
-                    <label>
-                        Icon (Name/URL):    
-                        <input minLength={2} placeholder="docker" value={appIcon} onChange={(e) => setAppIcon(e.target.value)} />
-                    </label>
-                </div>}
-            />
-        </div>
+                    <div className="FormGroup">
+                        <label>Topic</label>
+                        <input
+                            type="text"
+                            name="appTopic"
+                            value={form.appTopic}
+                            onChange={handleChange}
+                            required
+                            placeholder="Enter topic name"
+                        />
+                    </div>
+
+                    <div className="FormGroup">
+                        <label>Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            value={form.name}
+                            onChange={handleChange}
+                            required
+                            placeholder="Enter app name"
+                        />
+                    </div>
+
+                    <div className="FormGroup">
+                        <label>Description</label>
+                        <input
+                            type="text"
+                            name="description"
+                            value={form.description}
+                            onChange={handleChange}
+                            required
+                            placeholder="Enter app descriptions"
+                        />
+                    </div>
+
+                    <div className="FormGroup">
+                        <label>Link</label>
+                        <input
+                            type="text"
+                            name="link"
+                            value={form.link}
+                            onChange={handleChange}
+                            required
+                            placeholder="Enter app link"
+                        />
+                    </div>
+
+                    <div className="FormGroup">
+                        <label>Icon</label>
+                        <input
+                            type="text"
+                            name="link"
+                            value={form.link}
+                            onChange={handleChange}
+                            required
+                            placeholder="Enter app icon name or URL"
+                        />
+                    </div>
+
+
+                <div className="ButtonGroup">
+                    <button type="submit">Accept</button>
+                </div>
+            </form>
     );
 };
 

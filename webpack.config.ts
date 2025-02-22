@@ -26,6 +26,20 @@ export default (env: configEnv) => {
         
         // Project env mode
         mode: env.mode ?? "development",
+
+        optimization: {
+            splitChunks: {
+              chunks: "all",
+              cacheGroups: {
+                vendor: {
+                  test: /[\\/]node_modules[\\/]/,
+                  name: "vendors",
+                  chunks: "all",
+                },
+              },
+            },
+          }
+          ,
     
         // Entry JS File
         entry: "./src/main.tsx",
@@ -39,8 +53,8 @@ export default (env: configEnv) => {
         plugins: [
             new HtmlWebpackPlugin({
                 template: path.resolve(__dirname, "public", "index.html"),
-                cache: false,
-                favicon: "./src/components/favicon.svg"
+                favicon: path.resolve(__dirname, "src/assets/favicon.svg"),
+                cache: true
             }),
             new MiniCssExtractPlugin({
                 filename: "static/styles.[contenthash].css",
@@ -93,7 +107,7 @@ export default (env: configEnv) => {
                     test: /\.(woff(2)?)$/i,
                     type: 'asset/resource',
                     generator: {
-                        filename: 'static/font.[name].[ext]',
+                        filename: 'static/font.[name][ext]',
                     },
                 },
             ],
@@ -120,14 +134,9 @@ export default (env: configEnv) => {
             proxy: env.proxy ? [
                 {
                   context: ['/api'],
-                  target: 'http://localhost:3000/',
+                  target: 'http://micro-ve.lan/',
                   ws: true,
                   sockPort: 3000
-                },
-
-                {
-                    context: ['/login'],
-                    target: 'http://localhost:3000/',
                 },
             ] : [],
         },

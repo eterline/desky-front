@@ -1,30 +1,22 @@
-.AppAppend {
-    padding: .2rem;
-    display: flex;
-    align-content: center;
-    justify-content: center;
+.AppAppend .FormGroup {
+    display: grid;
+    grid-template-columns: 30% 70%;
 
-    background-color: rgb(var(--window-background), .8);
-    transition: 0.2s ease-in-out transform;
-    border-radius: .5rem;
+    font-size: 1rem;
 
-    cursor: pointer;
+    & input,
+    & select {
+        border-radius: 8px;
+        margin: 5px;
+        padding: 4px;
 
-    width: fit-content;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    margin-top: 10px;
+        font-size: 1rem;
+    }
 }
 
 .AppAppend_inner {
     display: flex;
     filter: invert(1); 
-}
-
-.AppAppend:hover {
-    transform: scale(1.05);
 }
 
 .AppAppend_text {

@@ -19,7 +19,7 @@ const TerminalShell: FC<TerminalShellProps> = ({ id, hostname, onClose }) => {
 
     return createPortal(
         <div className="Modal TerminalShell">
-            <div className="Modal_content TerminalShell_main">
+            <div className="Modal_content TerminalShell_main animated-scaleup">
                 <h2>SSH: {hostname}</h2>
                 <div className="TerminalShell_Shell" ref={ref}></div>
                 <div className="TerminalShell_close" onClick={handleClose}>Disconnect</div>

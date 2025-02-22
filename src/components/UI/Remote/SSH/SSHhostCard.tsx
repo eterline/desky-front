@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import './SSHhostCard.css'
-import { SSHhostInfo, SSHhostPing } from '../../../../lib/api/sshService';
+import { deleteSSHhost, SSHhostInfo, SSHhostPing } from '../../../../lib/api/sshService';
 import { UiIcon } from '../../Icons';
 import TerminalShell from './TerminalShell';
 import { createPortal } from 'react-dom';
@@ -23,8 +23,11 @@ const SSHhostCard: FC<SSHhostCardProps> = ({info, ping}) => {
     const connBtnText = isAvail ? "Connect SSH" : "Closed"
 
     return (
-        <div className='SSHhostCard'>
-            <h2>📦 SSH ID: {info.id.toString()}</h2>
+        <div className='SSHhostCard animated-topvisible'>
+            <h2>
+                📦 SSH ID: {info.id.toString()} 
+                <div onClick={() => deleteSSHhost(info.id)}><UiIcon invert name='trash'/></div>
+            </h2>
             <h3> SSH KEY: {keyUsageText}</h3>
             <h1>💻 {info.host}</h1>
             <div className='SSHhostCard-footer'>

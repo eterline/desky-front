@@ -5,7 +5,6 @@ import './LoadingContainer.css'
 
 const LoadingContainer: FC = () => {
 
-
     const [load, setLoad] = useState<number>(0);
     const [direction, setDirection] = useState<1 | -1>(1);
 

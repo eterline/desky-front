@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from "react";
 import { fetchMonitor, wsAgentMonitor } from "../lib/api/agentService";
 import useFetchService from "./useFetchService";
 import { WsConnectorAPI } from "../lib/api/apiBaseService";
-import { getItemLocalStorage, setItemLocalStorage } from "../lib/localStorage/localStorageService";
 
 export type AgentMonitorStatsMap = Record<string, AgentStats>
 
 export interface AgentStatsMessage {
     id:     string
     data:   AgentStats
+    timestamp?: number
 }
 
 export interface AgentStats {
@@ -129,11 +129,22 @@ const useWsAgentMonitor = (stubbed?: boolean) => {
                     try {
                         const stats: AgentStatsMessage = JSON.parse(e.data);
                         if (stats && stats.data && stats.id) {
-                            setItemLocalStorage(stats.id, stats.data)
                             setAgentStatsMap( prev => (
                                 {...prev, [stats.id]: stats.data }
                             ));
                         }
+
+                        if (stats.id && stats?.timestamp) {
+                            const now = Date.now();
+                            const timestamp = stats.timestamp * 1000;
+
+                            if (now - timestamp > 30 * 1000) {
+                                setAgentStatsMap( prev => (
+                                    {...prev, [stats.id]: null }
+                                ))
+                            }
+                        }
+
                     } catch (err) {
                         console.error('Error agents monitoring:', err);
                     }

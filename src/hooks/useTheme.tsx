@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { DeskyTheme, fetchTheme, setupBackground } from "../lib/api/settingsService";
 import useFetchService from "./useFetchService";
 import { getItemLocalStorage, setItemLocalStorage } from "../lib/localStorage/localStorageService";
@@ -10,7 +10,11 @@ const storeTheme = (name: string, theme: DeskyTheme) => (
 )
 
 const exportTheme = (name: string): DeskyTheme => {
-    return JSON.parse(getItemLocalStorage(`theme-${name}`))
+    try {
+        return JSON.parse(getItemLocalStorage(`theme-${name}`))
+    } catch (err) {
+        console.log("can't import theme colors from storage", err)
+    }
 }
 
 const useTheme = (name: string) => {

@@ -8,6 +8,7 @@ import usePingSSH from '../../../../hooks/usePingSSH';
 import { AppIcon, UiIcon } from '../../Icons';
 import { createPortal } from 'react-dom';
 import AppendSSH from './AppendSSH';
+import openModal from '../../Functional/openModal';
 
 const SSHhosts: FC = () => {
 
@@ -30,7 +31,15 @@ const SSHhosts: FC = () => {
                     />
                 )
             }
-            <div className='SSHhosts-add' onClick={() => setAppendOpen(true)}>
+            <div 
+                className='SSHhosts-add'
+                onClick={
+                    () => openModal(
+                        <AppendSSH onClose={() => setAppendOpen(false)}/>,
+                        () => setAppendOpen(false)
+                    )
+                }
+            >
                 + <UiIcon name='terminal' size='30px'/>
             </div>
             {

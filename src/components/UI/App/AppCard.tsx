@@ -12,7 +12,7 @@ const AppCard: FC<DeskyAppCard> = (app: DeskyAppCard) => {
     const Icon = ok ? <AppIconURL url={text}/> : <AppIcon name={text}/>;
 
     return (
-        <div className="AppCard" onClick={linkWindowHandle(app.link)}>
+        <div className="AppCard animated-leftVisibleScale" onClick={linkWindowHandle(app.link)}>
 
 
             <div onClick={(e) => e.stopPropagation()}>

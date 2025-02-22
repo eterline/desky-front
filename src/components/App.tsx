@@ -1,11 +1,13 @@
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
-import Main from './MainPage/Main';
-import Welcome from './WelcomePage/Welcome';
-
+import { Suspense, lazy } from "react";
 import './App.css';
 import './AppPhone.css';
 import Modal from 'react-modal';
 import useTheme from '../hooks/useTheme';
+import { LoadingContainer } from './UI/Functional';
+
+const MainPage = lazy(() => import('./MainPage/Main'));
+const WelcomePage = lazy(() => import('./WelcomePage/Welcome'));
 
 export const App = () => {
     Modal.setAppElement("#app-root");
@@ -13,12 +15,12 @@ export const App = () => {
     return (
     <>
         <BrowserRouter>
-        {/* <ToastContainer /> */}
-            <Routes>
-                <Route path='' element={ <Main/> }/>
-                <Route path='welcome' element={ <Welcome/> }/>
-            </Routes>
-        {/* <ToastContainer/> */}
+            <Suspense fallback={<LoadingContainer/>}>
+                <Routes>
+                    <Route path='' element={ <MainPage/> }/>
+                    <Route path='welcome' element={ <WelcomePage/> }/>
+                </Routes>
+            </Suspense>
         </BrowserRouter>
     </>
     );

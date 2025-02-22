@@ -6,15 +6,21 @@ export interface ApiStatus<T> {
     loading: boolean;
     error: string | null;
     data: T | null;
+    refetchFunc: () => void;
 }
 
 const useFetchService = <T>(fetchFunc: () => Promise<APIResponse<T>>, saveKey?: string): ApiStatus<T>  => {
+
+    const [trigger, setTrigger] = useState<number>(0);
+
+    const refetch = () => setTrigger((prev) => prev + 1);
+
     const defaultData = (): ApiStatus<any> => {
         if (saveKey) {
             const savedData = getItemLocalStorage(saveKey);
-            if (savedData) return { loading: false, error: null, data: savedData };
+            if (savedData) return { loading: false, error: null, data: savedData, refetchFunc: refetch };
         }
-        return { loading: true, error: null, data: null };
+        return { loading: true, error: null, data: null, refetchFunc: refetch };
     };
 
     const [status, setStatus] = useState<ApiStatus<T>>(defaultData);
@@ -24,13 +30,13 @@ const useFetchService = <T>(fetchFunc: () => Promise<APIResponse<T>>, saveKey?: 
         
         try {
             const data = await fetchFunc();
-            setStatus({ loading: false, error: null, data: data.Data });
+            setStatus({ loading: false, error: null, data: data.Data, refetchFunc: refetch });
 
             if (saveKey) {
                 setItemLocalStorage(saveKey, data.Data);
             }
         } catch (err) {
-            setStatus({ loading: false, error: String(err), data: null });
+            setStatus({ loading: false, error: String(err), data: null, refetchFunc: refetch });
         }
     }, [fetchFunc, saveKey]);
 
@@ -40,7 +46,7 @@ const useFetchService = <T>(fetchFunc: () => Promise<APIResponse<T>>, saveKey?: 
         fetchData();
 
         return () => controller.abort();
-    }, [fetchData]);
+    }, [fetchData, trigger]);
 
     return status;
 };

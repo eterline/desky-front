@@ -6,7 +6,7 @@ import { WsConnectorAPI } from "../lib/api/apiBaseService";
 export type AgentMonitorStatsMap = Record<string, AgentStats>
 
 export interface AgentStatsMessage {
-    id:     string
+    "host-id":     string
     data:   AgentStats
     timestamp?: number
 }
@@ -128,19 +128,20 @@ const useWsAgentMonitor = (stubbed?: boolean) => {
                 'message', (e) => {
                     try {
                         const stats: AgentStatsMessage = JSON.parse(e.data);
-                        if (stats && stats.data && stats.id) {
+
+                        if (stats && stats.data && stats["host-id"]) {
                             setAgentStatsMap( prev => (
-                                {...prev, [stats.id]: stats.data }
+                                {...prev, [stats["host-id"]]: stats.data }
                             ));
                         }
 
-                        if (stats.id && stats?.timestamp) {
+                        if (stats["host-id"] && stats?.timestamp) {
                             const now = Date.now();
                             const timestamp = stats.timestamp * 1000;
 
                             if (now - timestamp > 30 * 1000) {
                                 setAgentStatsMap( prev => (
-                                    {...prev, [stats.id]: null }
+                                    {...prev, [stats["host-id"]]: null }
                                 ))
                             }
                         }

@@ -33,7 +33,10 @@ export interface SSHhostForm {
 export const fetchSSHhostList = async (): PromiseResponse<SSHhostInfo[]> => {
     return axios
       .get<SSHhostInfo[]>(joinApiRoute(base, "list"))
-      .then((response) => ({ Data: response.data, Code: response.status }))
+      .then((response) => ({
+        Data: response.status == 204 ? [] : response.data,
+        Code: response.status
+      }))
       .catch((err) => {
         throw new Error("Fetch user list error: " + err.message);
       });

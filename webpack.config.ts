@@ -134,7 +134,7 @@ export default (env: configEnv) => {
             proxy: env.proxy ? [
                 {
                   context: ['/api'],
-                  target: 'http://micro-ve.lan/',
+                  target: 'http://localhost:3000/',
                   ws: true,
                   sockPort: 3000
                 },

@@ -1,12 +1,11 @@
 import { FC, useState } from 'react';
 import './SSHhosts.css'
 import { useFetchService } from '../../../../hooks';
-import { fetchSSHhostList, pingSSHhostList, SSHhostPing } from '../../../../lib/api/sshService';
+import { fetchSSHhostList } from '../../../../lib/api/sshService';
 import { ErrorMsg, LoadingContainer } from '../../Functional';
 import SSHhostCard from './SSHhostCard';
 import usePingSSH from '../../../../hooks/usePingSSH';
-import { AppIcon, UiIcon } from '../../Icons';
-import { createPortal } from 'react-dom';
+import { UiIcon } from '../../Icons';
 import AppendSSH from './AppendSSH';
 import openModal from '../../Functional/openModal';
 
